@@ -17,6 +17,7 @@ namespace Business.DependencyResolvers.Autofac
         protected override void Load(ContainerBuilder builder)
         {
             builder.RegisterType<BlogManager>().As<IBlogService>().SingleInstance();
+            builder.RegisterType<EfBlogDal>().As<IBlogDal>().SingleInstance();
 
             builder.RegisterType<UserManager>().As<IUserService>().SingleInstance();
             builder.RegisterType<EfUserDal>().As<IUserDal>().SingleInstance();
