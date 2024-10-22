@@ -42,6 +42,18 @@ namespace WebAPI.Controllers
             return Ok(result.Data);
         }
 
+
+        [HttpGet("GetByUrl/{blogUrl}")]
+        public async Task<IActionResult> Get(string blogUrl)
+        {
+            var result = await _blogService.GetBlogByUrl(blogUrl);
+            if (!result.IsSuccess)
+            {
+                return BadRequest(result);
+            }
+            return Ok(result.Data);
+        }
+
         [HttpPost("Add")]
         [Authorize]
         public async Task<IActionResult> Add(Blog blog)
