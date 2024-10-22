@@ -1,8 +1,20 @@
+using Autofac;
+using Autofac.Extensions.DependencyInjection;
+using WebUI.DependencyResolvers.Autofac;
+using WebUI.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-builder.Services.AddControllersWithViews();
 
+// Add services to the container.
+builder.Services.AddHttpClient();
+builder.Services.AddControllersWithViews();
+builder.Services.Configure<ApiSettings>(builder.Configuration.GetSection("ApiSettings"));
+builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory())
+    .ConfigureContainer<ContainerBuilder>(builder =>
+    {
+        builder.RegisterModule(new AutofacMVCModule());
+    });
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
