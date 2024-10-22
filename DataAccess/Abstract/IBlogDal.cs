@@ -10,6 +10,6 @@ namespace DataAccess.Abstract
 {
     public interface IBlogDal : IEntityRepository<Blog>
     {
-
+        Task<Blog> GetBlogByUrl(string blogUrl);
     }
 }
