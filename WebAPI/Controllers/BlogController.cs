@@ -1,10 +1,12 @@
 ﻿using Business.Abstract;
 using Entity.Concrete;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebAPI.Controllers
 {
+   
     [Route("api/[controller]")]
     [ApiController]
     public class BlogController : ControllerBase
@@ -41,6 +43,7 @@ namespace WebAPI.Controllers
         }
 
         [HttpPost("Add")]
+        [Authorize]
         public async Task<IActionResult> Add(Blog blog)
         {
             var result = await _blogService.AddAsync(blog);
