@@ -24,7 +24,7 @@ namespace Business.Concrete
            _blogDal = blogDal;
         }
         [ValidationAspect(typeof(BlogValidator))]
-        [SecuredOperation("admin")]
+        //[SecuredOperation("admin")]
         public async Task<IResult> AddAsync(Blog blog)
         {
             await _blogDal.AddAsync(blog);
@@ -47,6 +47,12 @@ namespace Business.Concrete
         {
             return new SuccessDataResult<Blog>(await _blogDal.GetAsync(x => x.Id == id), Messages.BlogIsListed);
         }
+
+        public async Task<IDataResult<Blog>> GetBlogByUrl(string blogUrl)
+        {
+            return new SuccessDataResult<Blog>(await _blogDal.GetBlogByUrl(blogUrl), Messages.BlogIsListed);
+        }
+
         [ValidationAspect(typeof(BlogValidator))]
         [SecuredOperation("admin")]
         public async Task<IResult> UpdateAsync(Blog blog)
