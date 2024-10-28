@@ -1,0 +1,333 @@
+﻿@model MessageModel
+@{
+    ViewData["Title"] = "Index";
+}
+<!-- Page Header Start -->
+<div class="page-header contact-page-header bg-radius-section parallaxie">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-12">
+                <!-- Page Header Box Start -->
+                <div class="page-header-box">
+                    <h1 class="text-anime-style-2" data-cursor="-opaque">İletişim</h1>
+                    <nav class="wow fadeInUp">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="/">Anasayfa</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">İletişim</li>
+                        </ol>
+                    </nav>
+                </div>
+                <!-- Page Header Box End -->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Page Header End -->
+<!-- Page Contact Us Start -->
+<div class="page-contact-us bg-radius-section">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <!-- Contact Information Start -->
+                <div class="contact-information">
+                    <!-- Section Title Start -->
+                    <div class="section-title">
+                        <h3 class="wow fadeInUp">Bize Ulaşın</h3>
+                        <h2 class="text-anime-style-3" data-cursor="-opaque">Bize Buradan Ulaşabilirsiniz.</h2>
+                        <p class="wow fadeInUp" data-wow-delay="0.25s">Sabuncu Psikoloji’ye telefon veya e-posta yoluyla kolayca ulaşabilirsiniz. İhtiyacınıza uygun terapi seçenekleri, randevu detayları veya danışmak istediğiniz herhangi bir konu için ekibimiz size yardımcı olmaktan memnuniyet duyar. Hızlı ve güvenilir iletişim için bize çekinmeden yazın.</p>
+                    </div>
+                    <!-- Section Title End -->
+                    <!-- Contact Information List Start -->
+                    <div class="contact-info-list wow fadeInUp" data-wow-delay="0.5s">
+                        <p>sabuncupsikoloji@gmail.com</p>
+                        <p>+90 535 468 04 48</p>
+                        <a href="tel:+905354680448" class="support-btn">Hemen Arayın</a>
+                    </div>
+                    <!-- Contact Information List End -->
+
+                    <div class="contact-information-box">
+                        <div class="contact-info-item wow fadeInUp" data-wow-delay="0.75s">
+                            <div class="icon-box">
+                                <img src="images/icon-location-blue.svg" alt="">
+                            </div>
+                            <div class="contact-info-content">
+                                <h3>Bakırköy / İstanbul</h3>
+                                <p>Zuhuratbaba Mah. Dr. Tevfik Sağlam Cad. Gürmen Apt. No:7 Daire:7 34147 Bakırköy/İstanbul</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-info-item wow fadeInUp" data-wow-delay="1s">
+                        </div>
+                    </div>
+                </div>
+                <!-- Contact Information End -->
+            </div>
+
+            <div class="col-lg-6">
+                <!-- Contact Form Start -->
+                <div class="contact-us-form">
+                    <!-- Section Title Start -->
+                    <div class="section-title">
+                        <h2 class="text-anime-style-3" data-cursor="-opaque">Formu Doldurarak Bizlere Ulaşabilirsiniz.</h2>
+                        <p class="wow fadeInUp" data-wow-delay="0.25s">Hizmetlerimiz hakkında bilgi almak veya randevu talep etmek için formu doldurmanız yeterlidir. Ekibimiz size en kısa sürede dönüş yapacaktır.</p>
+                    </div>
+                    <!-- Section Title End -->
+
+                    <form id="contactForm" action="/iletisim" method="post" data-toggle="validator" class="wow fadeInUp" data-wow-delay="0.5s">
+                        <div class="row">
+                            <div class="form-group col-md-6 mb-4">
+                                <input asp-for="FirstName" type="text" name="fname" class="form-control" id="fname" placeholder="İsim" required>
+                                <div class="help-block with-errors"></div>
+                            </div>
+                            <div class="form-group col-md-6 mb-4">
+                                <input asp-for="LastName" type="text" name="lname" class="form-control" id="lname" placeholder="Soyisim" required>
+                                <div class="help-block with-errors"></div>
+                            </div>
+                            <div class="form-group col-md-12 mb-4">
+                                <input asp-for="Email" type="email" name="email" class="form-control" id="email" placeholder="Email" required>
+                                <div class="help-block with-errors"></div>
+                            </div>
+                            <div class="form-group col-md-12 mb-4">
+                                <input asp-for="PhoneNumber" type="text" name="phone" class="form-control" id="phone" placeholder="Telefon Numarası" required>
+                                <div class="help-block with-errors"></div>
+                            </div>
+                            <div class="form-group col-md-12 mb-4">
+                                <textarea asp-for="MessageText" name="message" class="form-control" id="message" rows="5" placeholder="Mesaj" required></textarea>
+                                <div class="help-block with-errors"></div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="contact-form-btn">
+                                    <button type="button" class="btn-default" onclick="submitForm()"><span>Gönder</span></button>
+                                    <div id="msgSubmit" class="h3 hidden"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <!-- Contact Form End -->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Page Contact Us End -->
+<!-- Google Map Start -->
+<div class="google-map bg-radius-section">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <!-- Google Map Iframe Start -->
+                <div class="google-map-iframe">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1046.452919714801!2d28.868411187694278!3d40.99234516241198!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cabba660a8b4a1%3A0x556e3cf27e1bb2b!2sSabuncu%20Psikoloji!5e0!3m2!1str!2str!4v1729601790698!5m2!1str!2str
+                        " allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                <!-- Google Map Iframe End -->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Google Map End -->
+<!-- How It Work Section Start -->
+<div class="how-it-work bg-radius-section">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 order-lg-1 order-2">
+                <!-- How Work Images Start -->
+                <div class="how-work-images">
+                    <div class="row no-gutters">
+                        <div class="col-4">
+                            <!-- How Work Image Box Start -->
+                            <div class="how-work-image-box-1">
+                                <div class="how-work-img-1">
+                                    <figure class="image-anime reveal">
+                                        <img src="images/how-work-img-1.jpg" alt="">
+                                    </figure>
+                                </div>
+                                <div class="how-work-img-3">
+                                    <figure class="image-anime reveal">
+                                        <img src="images/how-work-img-3.jpg" alt="">
+                                    </figure>
+                                </div>
+                            </div>
+                            <!-- How Work Image Box End -->
+                        </div>
+
+                        <div class="col-8">
+                            <!-- How Work Image Box Start -->
+                            <div class="how-work-image-box-2">
+                                <div class="how-work-img-2">
+                                    <figure class="image-anime reveal">
+                                        <img src="images/how-work-img-2.jpg" alt="">
+                                    </figure>
+                                </div>
+                                <div class="how-work-img-4">
+                                    <figure class="image-anime reveal">
+                                        <img src="images/how-work-img-4.jpg" alt="">
+                                    </figure>
+                                </div>
+                            </div>
+                            <!-- How Work Image Box End -->
+                        </div>
+                    </div>
+                </div>
+                <!-- How Work Images End -->
+            </div>
+
+            <div class="col-lg-6 order-lg-2 order-1">
+                <!-- How Work Content Start -->
+                <div class="how-work-content">
+                    <!-- Section Title Start -->
+                    <div class="section-title">
+                        <h3 class="wow fadeInUp">Nasıl Çalışıyoruz</h3>
+                        <h2 class="text-anime-style-3" data-cursor="-opaque">Merak Edilen ve Sıkça Sorulan Sorular</h2>
+                    </div>
+                    <!-- Section Title End -->
+                    <!-- How Work Accordion Start -->
+                    <div class="how-work-accordion" id="accordion">
+                        <!-- FAQ Item Start -->
+                        <div class="accordion-item wow fadeInUp">
+                            <h2 class="accordion-header" id="heading1">
+                                <span class="icon-box">
+                                    <img src="images/icon-how-it-work-1.svg" alt="">
+                                </span>
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapse1" aria-expanded="true" aria-controls="collapse1">
+                                    Psikoterapi seansları nasıl işliyor?
+                                </button>
+                            </h2>
+                            <div id="collapse1" class="accordion-collapse collapse show" aria-labelledby="heading1"
+                                 data-bs-parent="#accordion">
+                                <div class="accordion-body">
+                                    <p>Psikoterapi seansları, bireylerin kendilerini rahat hissedebileceği bir ortamda başlar. Terapist, kişinin ihtiyaçlarına göre uygun terapi yöntemini belirler ve seans boyunca duygu ve düşüncelerin keşfine odaklanılır. Her seans, bireyin ilerlemesine göre şekillenir ve gizlilik esastır.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- FAQ Item End -->
+                        <!-- FAQ Item Start -->
+                        <div class="accordion-item wow fadeInUp" data-wow-delay="0.25s">
+                            <h2 class="accordion-header" id="heading2">
+                                <span class="icon-box">
+                                    <img src="images/icon-how-it-work-2.svg" alt="">
+                                </span>
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
+                                    Çocuklar için terapi neden önemlidir?
+                                </button>
+                            </h2>
+                            <div id="collapse2" class="accordion-collapse collapse" aria-labelledby="heading2"
+                                 data-bs-parent="#accordion">
+                                <div class="accordion-body">
+                                    <p>Çocuklar, duygusal ve psikolojik zorluklarını ifade etmekte zorlanabilirler. Terapi, çocukların hislerini oyun ve sanat aracılığıyla ifade etmelerine yardımcı olarak, özgüvenlerini artırır ve sağlıklı başa çıkma mekanizmaları geliştirmelerine olanak tanır. Böylece çocuklar, olumsuz deneyimlerini anlamlandırarak daha sağlıklı bireyler haline gelirler.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- FAQ Item End -->
+                        <!-- FAQ Item Start -->
+                        <div class="accordion-item wow fadeInUp" data-wow-delay="0.5s">
+                            <h2 class="accordion-header" id="heading3">
+                                <span class="icon-box">
+                                    <img src="images/icon-how-it-work-2.svg" alt="">
+                                </span>
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
+                                    Terapiye başlamak için ne zaman bir uzmana danışmalıyım?
+                                </button>
+                            </h2>
+                            <div id="collapse3" class="accordion-collapse collapse" aria-labelledby="heading3"
+                                 data-bs-parent="#accordion">
+                                <div class="accordion-body">
+                                    <p>Eğer günlük hayatınızı olumsuz etkileyen sürekli kaygı, depresyon, ilişki sorunları veya stres gibi durumlar yaşıyorsanız, bir uzmandan yardım almak faydalı olabilir. Ayrıca, travmatik deneyim sonrası duygusal zorluklar yaşıyorsanız, profesyonel destek almak önemlidir.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- FAQ Item End -->
+                        <!-- FAQ Item Start -->
+                        <div class="accordion-item wow fadeInUp" data-wow-delay="0.75s">
+                            <h2 class="accordion-header" id="heading4">
+                                <span class="icon-box">
+                                    <img src="images/icon-how-it-work-4.svg" alt="">
+                                </span>
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapse4" aria-expanded="false" aria-controls="collapse4">
+                                    Sabuncu Psikoloji'de hangi terapiler sunuluyor?
+                                </button>
+                            </h2>
+                            <div id="collapse4" class="accordion-collapse collapse" aria-labelledby="heading4"
+                                 data-bs-parent="#accordion">
+                                <div class="accordion-body">
+                                    <p>Sabuncu Psikoloji, bireylerin ihtiyaçlarına göre çeşitli terapi yöntemleri sunar. Bunlar arasında Bilişsel Davranışçı Terapi, Oyun Terapisi, EMDR Terapisi ve Mindfulness gibi teknikler yer alır. Her terapi yöntemi, bireyin yaşadığı sorunlara uygun olarak seçilir ve kişiye özel bir tedavi planı oluşturulur.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- FAQ Item End -->
+                    </div>
+                    <!-- FAQ Accordion End -->
+                </div>
+                <!-- How Work Content End -->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- How It Work Section End -->
+
+@* <script>
+    document.getElementById("contactForm").addEventListener("submit", function (event) {
+        event.preventDefault(); // Formun varsayılan submit davranışını engelle
+
+        // Form doğrulama (örneğin, tüm gerekli alanlar doldurulmuş mu kontrol edilebilir)
+        let isValid = true; // Burada isValid'i gerçek doğrulama ile ayarlayabilirsiniz
+
+        if (isValid) {
+            this.submit(); // Eğer form geçerli ise formu gönder
+        } else {
+            alert("Lütfen tüm alanları doğru şekilde doldurun!");
+        }
+    });
+</script>
+ *@
+<script>
+    function submitForm() {
+        // Form verilerini al
+        var firstName = $("#fname").val();
+        var lastName = $("#lname").val();
+        var email = $("#email").val();
+        var phoneNumber = $("#phone").val();
+        var messageText = $("#message").val();
+
+        // Boş alan kontrolü
+        if (!firstName || !lastName || !email || !phoneNumber || !messageText) {
+            alert("Lütfen tüm alanları doldurun.");
+            return;
+        }
+
+        // Email format kontrolü
+        var emailPattern = /^[^\s@@]+@@[^\s@@]+\.[^\s@@]+$/;
+        if (!emailPattern.test(email)) {
+            alert("Lütfen geçerli bir e-posta adresi girin.");
+            return;
+        }
+
+        // Form verisini JSON formatında hazırla
+        var formData = {
+            FirstName: firstName,
+            LastName: lastName,
+            Email: email,
+            PhoneNumber: phoneNumber,
+            MessageText: messageText
+        };
+
+        // AJAX isteği gönder
+        $.ajax({
+            type: "POST",
+            url: "/iletisim",  // Bu, formun gönderileceği URL
+            data: formData,
+            success: function (response) {
+                // Başarılı yanıt geldiğinde yapılacaklar
+                alert("Mesajınız başarıyla gönderildi!");
+            },
+            error: function (error) {
+                // Hata oluştuğunda yapılacaklar
+                alert("Bir hata oluştu, lütfen tekrar deneyin.");
+            }
+        });
+    }
+</script>

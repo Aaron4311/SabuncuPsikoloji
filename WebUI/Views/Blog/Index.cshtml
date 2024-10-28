@@ -1,0 +1,86 @@
+﻿@model List<BlogResponseDto>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<!-- Page Header Start -->
+<div class="page-header blog-page-header bg-radius-section parallaxie">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-12">
+                <!-- Page Header Box Start -->
+                <div class="page-header-box">
+                    <h1 class="text-anime-style-2" data-cursor="-opaque">Bloglar</h1>
+                    <nav class="wow fadeInUp">
+
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="/">Anasayfa</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Bloglar</li>
+                        </ol>
+
+                    </nav>
+                </div>
+                <!-- Page Header Box End -->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Page Header End -->
+<!-- Page Blog Start -->
+<div class="page-blog bg-radius-section">
+    <div class="container">
+        <div class="row">
+            @foreach (var blog in @Model)
+            {
+                <div class="col-lg-4 col-md-6">
+                    <!-- Blog Item Start -->
+                    <div class="blog-item wow fadeInUp">
+                        <!-- Post Featured Image Start-->
+                        <div class="post-featured-image">
+                            <figure>
+                                <a href="/blog/@blog.BlogUrl" class="image-anime" data-cursor-text="Oku">
+                                    <img src="~/images/@blog.ImageUrl" alt="">
+                                </a>
+
+                            </figure>
+
+                        </div>
+                        <!-- Post Featured Image End -->
+                        <!-- post Item Content Start -->
+                        <div class="post-item-content">
+                            <!-- post Item Body Start -->
+                            <div class="post-item-body">
+                                <h2 class="text-left ps-3"><a href="/blog/@blog.BlogUrl">@blog.Name</a></h2>
+                            </div>
+                            <!-- Post Item Body End-->
+                            <!-- Post Item Footer Start-->
+                            <div class="post-item-footer">
+                                <a href="/blog/@blog.BlogUrl" class="readmore-btn ps-3 mb-2">Devamını Oku</a>
+                            </div>
+                            <!-- Post Item Footer End-->
+                        </div>
+                        <!-- post Item Content End -->
+                    </div>
+                    <!-- Blog Item End -->
+                </div>
+
+            }
+
+
+
+            @* <div class="col-lg-12">
+            <!-- Page Pagination Start -->
+            <div class="page-pagination wow fadeInUp" data-wow-delay="0.5s">
+            <ul class="pagination">
+            <li><a href="#"><i class="fa-solid fa-arrow-left-long"></i></a></li>
+            <li class="active"><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#"><i class="fa-solid fa-arrow-right-long"></i></a></li>
+            </ul>
+            </div>
+            <!-- Page Pagination End -->
+            </div> *@
+        </div>
+    </div>
+</div>
+<!-- Page Blog End -->

@@ -1,0 +1,89 @@
+﻿@inject IServiceService _serviceService
+@{
+    var services = await _serviceService.GetAllAsync();
+  
+}
+<!-- Preloader Start -->
+<div class="preloader">
+    <div class="loading-container">
+        <div class="loading"></div>
+        <div id="loading-icon"><img src="images/loader.svg" alt=""></div>
+    </div>
+</div>
+<!-- Preloader End -->
+<!-- Topbar Section Start -->
+<div class="topbar">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-9 col-md-12">
+                <!-- Topbar Contact Information Start -->
+                <div class="topbar-contact-info">
+                    <ul>
+                        <li><a href="tel:+905354680448"><img src="~/images/icon-phone.svg" alt=""> +90 535 468 04 48</a></li>
+                        <li><a href="mailto:sabuncupsikoloji@gmail.com"><img src="~/images/icon-mail.svg" alt=""> sabuncupsikoloji@gmail.com</a></li>
+                        <li class="hide-mobile"><a target="_blank" href="https://maps.app.goo.gl/EENwZ36PK49uPTWP9"><img src="~/images/icon-location.svg" alt="">Dr. Tevfik Sağlam Cad. No:7 Daire:7 Bakırköy</a></li>
+                    </ul>
+                </div>
+                <!-- Topbar Contact Information End -->
+            </div>
+
+            <div class="col-lg-3 col-md-0">
+                <!-- Topbar Social Links Start -->
+                <div class="topbar-social-links">
+                    <ul>
+                        <li><a href="https://www.facebook.com/profile.php?id=100082947021843"><i class="fa-brands fa-facebook-f"></i></a></li>
+                        <li><a href="https://www.instagram.com/sabuncupsikoloji/"><i class="fa-brands fa-instagram"></i></a></li>
+                        <li><a href="https://www.youtube.com/channel/UCjwrn4HaG0JZ8qLlSvRNeUw"><i class="fa-brands fa-youtube"></i></a></li>
+                    </ul>
+                </div>
+                <!-- Topbar Social Links End -->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Topbar Section End -->
+<!-- Header Start -->
+<header class="main-header">
+    <div class="header-sticky">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <!-- Logo Start -->
+                <a class="navbar-brand" href="/">
+                    <img src="~/images/logo.png" alt="Logo">
+                </a>
+                <!-- Logo End -->
+                <!-- Main Menu Start -->
+                <div class="collapse navbar-collapse main-menu">
+                    <div class="nav-menu-wrapper">
+                        <ul class="navbar-nav mr-auto" id="menu">
+                            <li class="nav-item"><a class="nav-link" href="/">Anasayfa</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/hakkimizda">Hakkımızda</a></li>
+                            <li class="nav-item submenu">
+                                <a class="nav-link" >Hizmetlerimiz</a>
+                                <ul class="sub-menu">
+                                    @foreach (var service in services)
+                                    {
+                                        <li class="nav-item"><a class="nav-link" href="/hizmetlerimiz/@service.ServiceUrl">@service.Name</a></li>
+                                    }
+                                    
+                                </ul>
+                            </li>
+                            <li class="nav-item"><a class="nav-link" href="/blog-2">Blog</a></li>
+
+                            <li class="nav-item"><a class="nav-link" href="/iletisim">İletişim</a></li>
+                        </ul>
+                    </div>
+                    <!-- Let’s Start Button Start -->
+                    <div class="header-btn d-inline-flex">
+                        <a href="tel:+905354680448" class="btn-default"><span>+90 535 468 04 48</span></a>
+                    </div>
+                    <!-- Let’s Start Button End -->
+                </div>
+                <!-- Main Menu End -->
+                <div class="navbar-toggle"></div>
+            </div>
+        </nav>
+        <div class="responsive-menu"></div>
+    </div>
+</header>
+<!-- Header End -->

@@ -1,49 +1,57 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - WebUI</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/WebUI.styles.css" asp-append-version="true" />
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+    <meta name="keywords" content="psikoloji, danışmanlık, terapi, bireysel destek, aile terapisi, çocuk psikolojisi, zihinsel sağlık, stres yönetimi, kaygı, depresyon, Moxo Testi, dikkat eksikliği, ilaçsız müdahale, cinsel terapi, CAS testi, WISC-4 testi, çift ve aile terapisi, yetişkin psikoterapisi, çocuk ve ergen terapisi, yetişkinlerde dikkat eksikliği, ergenlerde dikkat eksikliği, çocuklarda dikkat eksikliği, ertelenen her oyun, keşkelere dönüşüyor, aldatma, dikkat eksikliği, evliliğe yüklediğimiz anlam, okul bahçeleri ve ağlayan çocuklar, çocuklar ve travmaları, çocuklarda EMDR">
+    <meta name="author" content="Sabuncu Psikoloji, Harun Karagöz">
+    <title>Sabuncu Psikoloji</title>
+	<link rel="shortcut icon" type="image/x-icon" href="images/favicon.png">
+	<link rel="preconnect" href="https://fonts.googleapis.com/">
+	<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Marcellus&amp;family=Sora:wght@100..800&amp;display=swap" rel="stylesheet">
+	<link href="~/css/bootstrap.min.css" rel="stylesheet" media="screen">
+	<link href="~/css/slicknav.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="~/css/swiper-bundle.min.css">
+	<link href="~/css/all.css" rel="stylesheet" media="screen">
+	<link href="~/css/animate.css" rel="stylesheet">
+	<link rel="stylesheet" href="~/css/magnific-popup.css">
+	<link rel="stylesheet" href="~/css/mousecursor.css">
+	<link href="~/css/custom.css" rel="stylesheet" media="screen">
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">WebUI</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2024 - WebUI - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
+    <partial name="_Navbar.cshtml" />
+    @RenderBody()
+    <a href="https://wa.me/905354680448" class="whatsapp-btn" target="_blank">
+       <img src="~/images/wbwhatsapp1.png" alt="WhatsApp">
+    </a>
+    
+    <partial name="_Footer.cshtml" />
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.min.js"></script>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
-    @await RenderSectionAsync("Scripts", required: false)
-</body>
+    <script src="~/js/jquery-3.7.1.min.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+    <script src="~/js/validator.min.js"></script>
+    <script src="~/js/jquery.slicknav.js"></script>
+    <script src="~/js/swiper-bundle.min.js"></script>
+    <script src="~/js/jquery.waypoints.min.js"></script>
+    <script src="~/js/jquery.counterup.min.js"></script>
+    <script src="~/js/jquery.magnific-popup.min.js"></script>
+    <script src="~/js/SmoothScroll.js"></script>
+    <script src="~/js/parallaxie.js"></script>
+    <script src="~/js/gsap.min.js"></script>
+    <script src="~/js/magiccursor.js"></script>
+    <script src="~/js/SplitText.js"></script>
+    <script src="~/js/ScrollTrigger.min.js"></script>
+    <script src="~/js/jquery.mb.YTPlayer.min.js"></script>
+    <script src="~/js/wow.js"></script>
+    <script src="~/js/function.js"></script>
+@*     @await RenderSectionAsync("Scripts", required: false)
+ *@</body>
 </html>

@@ -1,8 +1,568 @@
-﻿@{
+﻿@inject IServiceService _serviceService
+@inject IPsychologistService _psychologistService
+@{
     ViewData["Title"] = "Home Page";
+    var services = await _serviceService.GetAllAsync();
+    var psychologists = await _psychologistService.GetAllAsync();
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+
+<!-- Hero Section Start -->
+<div class="hero bg-radius-section parallaxie">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-7">
+                <!-- Hero Content Start -->
+                <div class="hero-content">
+                    <!-- Section Title Start -->
+                    <div class="section-title">
+                        <h1 class="text-anime-style-3" data-cursor="-opaque">Daha İyi Bir Sen Mümkün!</h1>
+                        <p class="wow fadeInUp" data-wow-delay="0.25s">Hayatın getirdiği zorluklarda yalnız değilsiniz! Sabuncu Psikoloji, bireysel terapi, çift ve aile danışmanlığı, çocuk ve ergen terapisi gibi alanlarda uzman desteği sunarak her yaş grubuna çözüm odaklı yaklaşımlar sağlar. İç huzurunuzu keşfetmek ve güçlü ilişkiler kurmak için yanınızdayız.</p>
+                    </div>
+                    <!-- Section Title End -->
+                    <!-- Hero Content Body Start -->
+                    <div class="hero-content-body wow fadeInUp" data-wow-delay="0.5s">
+                        <a href="/hakkimizda" class="btn-default"><span>Hakkımızda</span></a>
+                        <a href="/iletisim" class="btn-default btn-highlighted"><span>İletişim</span></a>
+                    </div>
+                    <!-- Hero Content Body End -->
+                </div>
+                <!-- Hero Content End -->
+            </div>
+        </div>
+    </div>
 </div>
+<!-- Hero Section End -->
+<!-- Our Benefits Secton Start -->
+<div class="our-benefits bg-radius-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-6">
+                <!-- Benefits Item Start -->
+                <div class="benefits-item wow fadeInUp">
+                    <div class="icon-box">
+                        <img src="images/icon-benefits-1.svg" alt="">
+                    </div>
+                    <div class="benefits-content">
+                        <h3>Uzman Kadro</h3>
+                        <p>Alanında Deneyimli Kadro</p>
+                    </div>
+                </div>
+                <!-- Benefits Item End -->
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+                <!-- Benefits Item Start -->
+                <div class="benefits-item wow fadeInUp" data-wow-delay="0.25s">
+                    <div class="icon-box">
+                        <img src="images/icon-benefits-2.svg" alt="">
+                    </div>
+                    <div class="benefits-content">
+                        <h3>Kolay Ulaşım</h3>
+                        <p>Merkezi Konum ile Kolay Ulaşım</p>
+                    </div>
+                </div>
+                <!-- Benefits Item End -->
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+                <!-- Benefits Item Start -->
+                <div class="benefits-item wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="icon-box">
+                        <img src="images/icon-benefits-3.svg" alt="">
+                    </div>
+                    <div class="benefits-content">
+                        <h3>Destek</h3>
+                        <p>7/24 Destek Hizmeti</p>
+                    </div>
+                </div>
+                <!-- Benefits Item End -->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Our Benefits Secton End -->
+<!-- Quality Treatment Section Start -->
+<div class="our-quality bg-radius-section">
+    <div class="quality-treatment" id="childrens-paintings">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <!-- Quality Treatment Content Start -->
+                    <div class="quality-treatment-content">
+                        <!-- Section Title Start -->
+                        <div class="section-title">
+                            <h3 class="wow fadeInUp">Kaliteli Hizmet</h3>
+                            <h2 class="text-anime-style-3" data-cursor="-opaque">Çocuklarımız Çizdiği Resimler ile Ne Anlatmak İstiyor?</h2>
+                            <p class="wow fadeInUp" data-wow-delay="0.25s">
+                                Çocuklar, duygu ve düşüncelerini çoğu zaman sözlü olarak ifade etmek yerine farklı iletişim yollarına başvururlar. Bu yollardan biri de resimdir.
+                            </p>
+                            <p class="wow fadeInUp" data-wow-delay="0.25s">
+                                Bazen aile içindeki kırgınlıklarını, korkularını, endişelerini, akran ilişkilerini, duygusal problemlerini ve zihinlerinde beliren soru işaretlerini resimleri aracılığıyla dile getirirler.
+                            </p>
+                            <p class="wow fadeInUp" data-wow-delay="0.25s">
+                                Çocuk ve Ergen Psikoloğu Müberra Sabuncu ile dördüncüsü düzenlenen atölye çalışmasında, çocuklarımızın çizimlerini yorumlamanın ipuçlarını öğreniyoruz.
+                            </p>
+                        </div>
+                        <!-- Section Title End -->
+                        <!-- Quality Treatment Body Start -->
+                        <!-- Quality Treatment Body End -->
+                        <!-- Quality Treatment Footer Start -->
+                        <div class="quality-treatment-footer wow fadeInUp" data-wow-delay="0.75s">
+                            <a href="/iletisim" class="btn-default"><span>Bize Ulaşın</span></a>
+                        </div>
+                        <!-- Quality Treatment Footer End -->
+                    </div>
+                    <!-- Quality Treatment Content End -->
+                </div>
+
+                <div class="col-lg-6"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Quality Treatment Section End -->
+<!-- About Us Section Start -->
+<div class="about-us bg-radius-section">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <div class="about-content">
+                    <!-- Section Title Start -->
+                    <div class="section-title">
+                        <h3 class="wow fadeInUp">Hakkımızda</h3>
+                        <h2 class="text-anime-style-3" data-cursor="-opaque">Psikolojik Destekte En İyi Seçiminiz</h2>
+                        <p class="wow fadeInUp" data-wow-delay="0.25s">Sabuncu Psikoloji, bireylerin ve ailelerin ruhsal sağlığını güçlendirmek için profesyonel çözümler sunar. Çift terapisi, çocuk ve ergen danışmanlığı, kaygı ve depresyon gibi birçok alanda uzman kadromuzla yanınızdayız. Kendinizi daha iyi hissetmek ve hayata yeni bir başlangıç yapmak için Sabuncu Psikoloji’ye güvenin.</p>
+                    </div>
+                    <!-- Section Title End -->
+                    <!-- About Content Body Start -->
+                    <div class="about-content-body">
+                        <div class="row align-items-center">
+                            <div class="col-md-6">
+                                <!-- About Content List Start -->
+                                <div class="about-content-list">
+                                    <!-- About List Item Start -->
+                                    <div class="about-list-item wow fadeInUp" data-wow-delay="0.5s">
+                                        <div class="icon-box">
+                                            <img src="images/icon-about-list-1.svg" alt="">
+                                        </div>
+                                        <div class="about-list-content">
+                                            <p>Uzman Kadro</p>
+                                        </div>
+                                    </div>
+                                    <!-- About List Item End -->
+                                    <!-- About List Item Start -->
+                                    <div class="about-list-item wow fadeInUp" data-wow-delay="0.75s">
+                                        <div class="icon-box">
+                                            <img src="images/icon-about-list-2.svg" alt="">
+                                        </div>
+                                        <div class="about-list-content">
+                                            <p>7/24 Destek</p>
+                                        </div>
+                                    </div>
+                                    <!-- About List Item End -->
+                                    <!-- About List Item Start -->
+                                    <div class="about-list-item wow fadeInUp" data-wow-delay="1s">
+                                        <div class="icon-box">
+                                            <img src="images/icon-about-list-3.svg" alt="">
+                                        </div>
+                                        <div class="about-list-content">
+                                            <p>Kişisel Gizlilik</p>
+                                        </div>
+                                    </div>
+                                    <!-- About List Item End -->
+                                </div>
+                                <!-- About Content List End -->
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="about-trusted-customer wow fadeInUp" data-wow-delay="0.5s">
+                                    <div class="trusted-customer-image">
+                                        <img src="images/about-trusted-customer-img.png" alt="">
+                                    </div>
+                                    <div class="trusted-customer-rating">
+                                        <ul>
+                                            <li>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="trusted-customer-content">
+                                        <p>Bize Güvenen <span class="counter">4</span>k+ Danışan</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- About Content Body End -->
+                    <!-- About Content Footer Start -->
+                    <div class="about-content-footer wow fadeInUp" data-wow-delay="1.25s">
+                        <a href="/hakkimizda" class="btn-default"><span>Hakkımızda</span></a>
+                    </div>
+                    <!-- About Content Footer End -->
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <!-- About Us Images Start -->
+                <div class="about-us-images">
+                    <div class="about-image img-box-1">
+                        <figure class="image-anime">
+                            <img src="images/about-us-img-1.jpg" alt="">
+                        </figure>
+                    </div>
+
+                    <div class="about-image img-box-2">
+                        <figure class="image-anime">
+                            <img src="images/about-us-img-2.jpg" alt="">
+                        </figure>
+                    </div>
+
+                    <div class="about-image img-box-3">
+                        <figure class="image-anime">
+                            <img src="images/about-us-img-3.jpg" alt="">
+                        </figure>
+                    </div>
+
+                    <div class="about-image img-box-4">
+                        <figure class="image-anime">
+                            <img src="images/about-us-img-4.jpg" alt="">
+                        </figure>
+                    </div>
+
+                    <div class="about-circle-logo">
+                        <img src="images/about-circle-logo.png" alt="">
+                    </div>
+                </div>
+                <!-- About Us Images End -->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- About Us Section End -->
+<!-- Page Header Start -->
+<!-- Page Header End -->
+<!-- Page Blog Start -->
+<!-- Page Blog End -->
+<!-- Our Services Section Start -->
+<div class="our-services bg-radius-section" id="services">
+    <div class="container">
+        <div class="row section-row align-items-center">
+            <div class="col-lg-6">
+                <!-- Section Title Start -->
+                <div class="section-title">
+                    <h3 class="wow fadeInUp">Hizmetlerimiz</h3>
+                    <h2 class="text-anime-style-3" data-cursor="-opaque">En İyi Psikolojik Destek Hizmetleri</h2>
+                    <p class="wow fadeInUp" data-wow-delay="0.25s">Her danışanımızın ihtiyacına özel, çözüm odaklı yaklaşımımızla ruh sağlığınızı güçlendirmek için buradayız.</p>
+                </div>
+                <!-- Section Title End -->
+            </div>
+
+            <div class="col-lg-6">
+                <!-- Section Btn Start -->
+                <div class="section-btn wow fadeInUp">
+                    <a class="btn-default"><span>Tüm Hizmetlerimiz</span></a>
+                </div>
+                <!-- Section Btn End -->
+            </div>
+        </div>
+
+        <div class="row">
+            @foreach (var service in services)
+            {
+                <div class="col-lg-4 col-md-6">
+                    <!-- Service Item Start -->
+                    <div class="service-item wow fadeInUp">
+                        <!-- Service Item Image Start -->
+                        <div class="service-item-image">
+                            <figure>
+                                <img src="images/@service.ImageUrl" alt="">
+                            </figure>
+                        </div>
+                        <!-- Service Item Image End -->
+                        <!-- Service Item Icon Start -->
+                        <div class="icon-box">
+                            <img src="images/icon-service-1.svg" alt="">
+                        </div>
+                        <!-- Service Item Icon ENd -->
+                        <!-- Service Body Start -->
+                        <div class="service-body">
+                            <!-- Service Content Start -->
+                            <div class="service-content">
+                                <h3>@service.Name</h3>
+                                <p>@service.ShortText</p>
+                            </div>
+                            <!-- Service Content End -->
+                            <!-- Service Btn Start -->
+                            <div class="service-btn">
+                                <a href="/hizmetlerimiz/@service.ServiceUrl"><img src="images/arrow-readmore-btn.svg" alt=""></a>
+                            </div>
+                            <!-- Service Btn End -->
+                        </div>
+                        <!-- Service Body End -->
+                    </div>
+                    <!-- Service Item End -->
+                </div>
+
+            }
+            <div class="col-lg-12">
+                <!-- More Service Btn Start -->
+                <div class="more-service-btn wow fadeInUp" data-wow-delay="1.5s">
+                    <a href="#">Hizmetlerimiz Hakkında Detaylı Bilgiye Buradan Ulaşabilirsiniz.<img src="images/arrow-long-white.svg" alt=""></a>
+                </div>
+                <!-- More Service Btn End -->
+            </div>
+        </div>
+    </div>
+</div>
+<div class="bg-section bg-radius-section"></div>
+<!-- Our Services Section End -->
+
+<div class="page-blog bg-radius-section">
+    <div class="container">
+        <div class="row">
+            @foreach (var psychologist in psychologists)
+            {
+                <div class="col-lg-4 col-md-6">
+                    <!-- Blog Item Start -->
+                    <div class="blog-item wow fadeInUp">
+                        <!-- Post Featured Image Start-->
+                        <div class="post-featured-image">
+                            <figure>
+                                <a href="/@psychologist.PsychologistUrl" class="image-anime" data-cursor-text="Oku">
+                                    <img src="~/images/@psychologist.ImageUrl" alt="@psychologist.Name">
+                                </a>
+
+                            </figure>
+
+                        </div>
+                        <!-- Post Featured Image End -->
+                        <!-- post Item Content Start -->
+                        <div class="post-item-content">
+                            <!-- post Item Body Start -->
+                            <div class="post-item-body">
+                                <h2 class="text-left ps-3">
+                                    <a href="/@psychologist.PsychologistUrl">
+                                        <div>
+                                            <p><strong> @psychologist.Name  </strong> <br />  @psychologist.Title </p>
+
+                                        </div>
+                                    </a>
+                                </h2>
+                            </div>
+                            <!-- Post Item Body End-->
+                            <!-- Post Item Footer Start-->
+                            <div class="post-item-footer">
+                                @if (!string.IsNullOrEmpty(psychologist.PsychologistUrl))
+                                {
+                                    <a href="/@psychologist.PsychologistUrl" class="readmore-btn ps-3 mb-2">Daha Fazla</a>
+
+                                }
+                            </div>
+                            <!-- Post Item Footer End-->
+                        </div>
+                        <!-- post Item Content End -->
+                    </div>
+                    <!-- Blog Item End -->
+                </div>
+
+            }
+        </div>
+    </div>
+</div>
+
+<!-- Quality Treatment Section Start -->
+<div class="our-quality bg-radius-section">
+    <div class="quality-treatment">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <!-- Quality Treatment Content Start -->
+                    <div class="quality-treatment-content">
+                        <!-- Section Title Start -->
+                        <div class="section-title">
+                            <h3 class="wow fadeInUp">Kaliteli Hizmet</h3>
+                            <h2 class="text-anime-style-3" data-cursor="-opaque">Etkili ve Kaliteli Terapi</h2>
+                            <p class="wow fadeInUp" data-wow-delay="0.25s">Sabuncu Psikoloji, bireylerin ruhsal sağlığını güçlendirmek için profesyonel ve etkili terapi yöntemleri sunar. Uzman kadromuz, her bireyin ihtiyaçlarına özel çözümler üreterek sağlıklı bir iyileşme süreci sağlar.</p>
+                        </div>
+                        <!-- Section Title End -->
+                        <!-- Quality Treatment Body Start -->
+                        <div class="quality-treatment-body wow fadeInUp" data-wow-delay="0.5s">
+                            <ul>
+                                <li>Sabuncu Psikoloji'yle Güçlü İyileşme</li>
+                                <li>Beklenmedik Durumlar İçin Acil Destek</li>
+                                <li>Destek ve Anlayış</li>
+                            </ul>
+                        </div>
+                        <!-- Quality Treatment Body End -->
+                        <!-- Quality Treatment Footer Start -->
+                        <div class="quality-treatment-footer wow fadeInUp" data-wow-delay="0.75s">
+                            <a href="/iletisim" class="btn-default"><span>Bize Ulaşın</span></a>
+                        </div>
+                        <!-- Quality Treatment Footer End -->
+                    </div>
+                    <!-- Quality Treatment Content End -->
+                </div>
+
+                <div class="col-lg-6"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Quality Treatment Section End -->
+<!-- How It Work Section Start -->
+<div class="how-it-work bg-radius-section">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 order-lg-1 order-2">
+                <!-- How Work Images Start -->
+                <div class="how-work-images">
+                    <div class="row no-gutters">
+                        <div class="col-4">
+                            <!-- How Work Image Box Start -->
+                            <div class="how-work-image-box-1">
+                                <div class="how-work-img-1">
+                                    <figure class="image-anime reveal">
+                                        <img src="images/how-work-img-1.jpg" alt="">
+                                    </figure>
+                                </div>
+                                <div class="how-work-img-3">
+                                    <figure class="image-anime reveal">
+                                        <img src="images/how-work-img-3.jpg" alt="">
+                                    </figure>
+                                </div>
+                            </div>
+                            <!-- How Work Image Box End -->
+                        </div>
+
+                        <div class="col-8">
+                            <!-- How Work Image Box Start -->
+                            <div class="how-work-image-box-2">
+                                <div class="how-work-img-2">
+                                    <figure class="image-anime reveal">
+                                        <img src="images/how-work-img-2.jpg" alt="">
+                                    </figure>
+                                </div>
+                                <div class="how-work-img-4">
+                                    <figure class="image-anime reveal">
+                                        <img src="images/how-work-img-4.jpg" alt="">
+                                    </figure>
+                                </div>
+                            </div>
+                            <!-- How Work Image Box End -->
+                        </div>
+                    </div>
+                </div>
+                <!-- How Work Images End -->
+            </div>
+
+            <div class="col-lg-6 order-lg-2 order-1">
+                <!-- How Work Content Start -->
+                <div class="how-work-content">
+                    <!-- Section Title Start -->
+                    <div class="section-title">
+                        <h3 class="wow fadeInUp">Nasıl Çalışıyoruz</h3>
+                        <h2 class="text-anime-style-3" data-cursor="-opaque">Merak Edilen ve Sıkça Sorulan Sorular</h2>
+                    </div>
+                    <!-- Section Title End -->
+                    <!-- How Work Accordion Start -->
+                    <div class="how-work-accordion" id="accordion">
+                        <!-- FAQ Item Start -->
+                        <div class="accordion-item wow fadeInUp">
+                            <h2 class="accordion-header" id="heading1">
+                                <span class="icon-box">
+                                    <img src="images/icon-how-it-work-1.svg" alt="">
+                                </span>
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapse1" aria-expanded="true" aria-controls="collapse1">
+                                    Psikoterapi seansları nasıl işliyor?
+                                </button>
+                            </h2>
+                            <div id="collapse1" class="accordion-collapse collapse show" aria-labelledby="heading1"
+                                 data-bs-parent="#accordion">
+                                <div class="accordion-body">
+                                    <p>Psikoterapi seansları, bireylerin kendilerini rahat hissedebileceği bir ortamda başlar. Terapist, kişinin ihtiyaçlarına göre uygun terapi yöntemini belirler ve seans boyunca duygu ve düşüncelerin keşfine odaklanılır. Her seans, bireyin ilerlemesine göre şekillenir ve gizlilik esastır.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- FAQ Item End -->
+                        <!-- FAQ Item Start -->
+                        <div class="accordion-item wow fadeInUp" data-wow-delay="0.25s">
+                            <h2 class="accordion-header" id="heading2">
+                                <span class="icon-box">
+                                    <img src="images/icon-how-it-work-2.svg" alt="">
+                                </span>
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
+                                    Çocuklar için terapi neden önemlidir?
+                                </button>
+                            </h2>
+                            <div id="collapse2" class="accordion-collapse collapse" aria-labelledby="heading2"
+                                 data-bs-parent="#accordion">
+                                <div class="accordion-body">
+                                    <p>Çocuklar, duygusal ve psikolojik zorluklarını ifade etmekte zorlanabilirler. Terapi, çocukların hislerini oyun ve sanat aracılığıyla ifade etmelerine yardımcı olarak, özgüvenlerini artırır ve sağlıklı başa çıkma mekanizmaları geliştirmelerine olanak tanır. Böylece çocuklar, olumsuz deneyimlerini anlamlandırarak daha sağlıklı bireyler haline gelirler.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- FAQ Item End -->
+                        <!-- FAQ Item Start -->
+                        <div class="accordion-item wow fadeInUp" data-wow-delay="0.5s">
+                            <h2 class="accordion-header" id="heading3">
+                                <span class="icon-box">
+                                    <img src="images/icon-how-it-work-2.svg" alt="">
+                                </span>
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
+                                    Terapiye başlamak için ne zaman bir uzmana danışmalıyım?
+                                </button>
+                            </h2>
+                            <div id="collapse3" class="accordion-collapse collapse" aria-labelledby="heading3"
+                                 data-bs-parent="#accordion">
+                                <div class="accordion-body">
+                                    <p>Eğer günlük hayatınızı olumsuz etkileyen sürekli kaygı, depresyon, ilişki sorunları veya stres gibi durumlar yaşıyorsanız, bir uzmandan yardım almak faydalı olabilir. Ayrıca, travmatik deneyim sonrası duygusal zorluklar yaşıyorsanız, profesyonel destek almak önemlidir.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- FAQ Item End -->
+                        <!-- FAQ Item Start -->
+                        <div class="accordion-item wow fadeInUp" data-wow-delay="0.75s">
+                            <h2 class="accordion-header" id="heading4">
+                                <span class="icon-box">
+                                    <img src="images/icon-how-it-work-4.svg" alt="">
+                                </span>
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapse4" aria-expanded="false" aria-controls="collapse4">
+                                    Sabuncu Psikoloji'de hangi terapiler sunuluyor?
+                                </button>
+                            </h2>
+                            <div id="collapse4" class="accordion-collapse collapse" aria-labelledby="heading4"
+                                 data-bs-parent="#accordion">
+                                <div class="accordion-body">
+                                    <p>Sabuncu Psikoloji, bireylerin ihtiyaçlarına göre çeşitli terapi yöntemleri sunar. Bunlar arasında Bilişsel Davranışçı Terapi, Oyun Terapisi, Şema Terapi, Dinamik Yönelimli Terapiler, EMDR Terapisi ve Mindfulness gibi teknikler yer alır. Her terapi yöntemi, bireyin yaşadığı sorunlara uygun olarak seçilir ve kişiye özel bir tedavi planı oluşturulur.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- FAQ Item End -->
+                    </div>
+                    <!-- FAQ Accordion End -->
+                </div>
+                <!-- How Work Content End -->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- How It Work Section End -->
+<!-- Popup -->
+<div id="popup" class="popup">
+    <div class="popup-content">
+        <span id="closePopup" class="close">&times;</span>
+        <img src="~/images/pop-up-sabuncu.jpg" alt="WBluee Promotion" />
+    </div>
+</div>
+
+
+<script src="~/js/script.js"></script>

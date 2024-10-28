@@ -1,0 +1,71 @@
+﻿@model PsychologistResponseDto
+@{
+    var x = Model;
+}
+
+<!-- Page Header Start -->
+<div class="page-header blog-page-header bg-radius-section parallaxie">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-12">
+                <!-- Page Header Box Start -->
+                <div class="page-header-box">
+                    <h1 class="text-anime-style-2" data-cursor="-opaque">@Html.Raw(Model.Title) @Html.Raw(Model.Name)</h1>
+                    <nav class="wow fadeInUp">
+
+
+
+                    </nav>
+                </div>
+                <!-- Page Header Box End -->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Page Header End -->
+<!-- Page Blog Start -->
+<div class="page-blog bg-radius-section">
+    <div class="container">
+        <div class="row">
+            <div class="row">
+                <div class="col-lg-12">
+                    <!-- Post Single Content Start -->
+                    <div class="post-content text-center">
+                        <img src="~/images/@Model.ImageUrl" />
+                        <!-- Post Entry Start -->
+                        <div class="post-entry text-center">
+                            @Html.Raw(Model.Content)
+                        </div>
+                        <!-- Post Entry End -->
+                        <!-- Post Tag Links Start -->
+                        <div class="post-tag-links">
+                            <div class="row align-items-center">
+                                <div class="col-lg-8">
+                                    <!-- Post Tags Start -->
+                                    <!-- Post Tags End -->
+                                </div>
+
+                                <div class="col-lg-4">
+                                    <!-- Post Social Links Start -->
+                                    <div class="post-social-sharing wow fadeInUp" data-wow-delay="0.5s">
+                                        <ul>
+                                            <li><a target="_blank" href="https://www.facebook.com/profile.php?id=100082947021843"><i class="fa-brands fa-facebook-f"></i></a></li>
+                                            <li><a target="_blank" href="https://www.instagram.com/sabuncupsikoloji"><i class="fa-brands fa-instagram"></i></a></li>
+                                            <li><a target="_blank" href="https://www.youtube.com/channel/UCjwrn4HaG0JZ8qLlSvRNeUw"><i class="fa-brands fa-youtube"></i></a></li>
+                                        </ul>
+                                    </div>
+                                    <!-- Post Social Links End -->
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Post Tag Links End -->
+                    </div>
+                    <!-- Post Single Content End -->
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<!-- Page Blog End -->
