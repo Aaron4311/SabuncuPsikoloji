@@ -6,15 +6,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Business.Validations.FluentValidation
+namespace Business.Validations
 {
-    public class BlogValidator : AbstractValidator<Blog>
+    public class PsychologistValidator : AbstractValidator<Psychologist>
     {
-        public BlogValidator()
+        public PsychologistValidator()
         {
+            RuleFor(x => x.Title).NotEmpty();
+            RuleFor(x => x.ImageUrl).NotEmpty();
             RuleFor(x => x.Name).NotEmpty();
-            RuleFor(x => x.Content).NotEmpty();
-            RuleFor(x => x.BlogUrl).NotEmpty();
         }
     }
 }

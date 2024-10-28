@@ -8,13 +8,15 @@ using System.Threading.Tasks;
 
 namespace Business.Validations.FluentValidation
 {
-    public class BlogValidator : AbstractValidator<Blog>
+    public class ServiceValidator : AbstractValidator<Service>
     {
-        public BlogValidator()
+        public ServiceValidator()
         {
-            RuleFor(x => x.Name).NotEmpty();
             RuleFor(x => x.Content).NotEmpty();
-            RuleFor(x => x.BlogUrl).NotEmpty();
+            RuleFor(x => x.ServiceUrl).NotEmpty();
+            RuleFor(x => x.ImageUrl).NotEmpty();
+            RuleFor(x => x.ShortText).NotEmpty();
+            RuleFor(x => x.Name).NotEmpty();
         }
     }
 }
