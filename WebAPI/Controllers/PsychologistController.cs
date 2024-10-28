@@ -1,28 +1,23 @@
 ﻿using Business.Abstract;
 using Entity.Concrete;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebAPI.Controllers
 {
-   
     [Route("api/[controller]")]
     [ApiController]
-    public class BlogController : ControllerBase
+    public class PsychologistController : ControllerBase
     {
-        private readonly IBlogService _blogService;
-
-        public BlogController(IBlogService blogService)
+        private readonly IPsychologistService _psychologistService;
+        public PsychologistController(IPsychologistService psychologistService)
         {
-            _blogService = blogService;
+            _psychologistService = psychologistService;
         }
-
-
         [HttpGet("GetAll")]
         public async Task<IActionResult> GetAll()
         {
-            var result = await _blogService.GetAllAsync();
+            var result = await _psychologistService.GetAllAsync();
             if (!result.IsSuccess)
             {
                 return BadRequest(result);
@@ -34,7 +29,7 @@ namespace WebAPI.Controllers
         [HttpGet("Get/{id}")]
         public async Task<IActionResult> Get(int id)
         {
-            var result = await _blogService.GetAsync(id);
+            var result = await _psychologistService.GetAsync(id);
             if (!result.IsSuccess)
             {
                 return BadRequest(result);
@@ -43,10 +38,10 @@ namespace WebAPI.Controllers
         }
 
 
-        [HttpGet("GetByUrl/{blogUrl}")]
-        public async Task<IActionResult> Get(string blogUrl)
+        [HttpGet("GetByUrl/{psychologistUrl}")]
+        public async Task<IActionResult> Get(string psychologistUrl)
         {
-            var result = await _blogService.GetBlogByUrl(blogUrl);
+            var result = await _psychologistService.GetPsychologistByUrl(psychologistUrl);
             if (!result.IsSuccess)
             {
                 return BadRequest(result);
@@ -55,9 +50,10 @@ namespace WebAPI.Controllers
         }
 
         [HttpPost("Add")]
-        public async Task<IActionResult> Add(Blog blog)
+        //[Authorize]
+        public async Task<IActionResult> Add(Psychologist psychologist)
         {
-            var result = await _blogService.AddAsync(blog);
+            var result = await _psychologistService.AddAsync(psychologist);
             if (!result.IsSuccess)
             {
                 return BadRequest(result);
@@ -65,10 +61,9 @@ namespace WebAPI.Controllers
             return Ok(result.Message);
         }
         [HttpPut("Update")]
-        
-        public async Task<IActionResult> Update(Blog blog)
+        public async Task<IActionResult> Update(Psychologist psychologist)
         {
-            var result = await _blogService.UpdateAsync(blog);
+            var result = await _psychologistService.UpdateAsync(psychologist);
             if (!result.IsSuccess)
             {
                 return BadRequest(result);
@@ -76,10 +71,9 @@ namespace WebAPI.Controllers
             return Ok(result.Message);
         }
         [HttpDelete("Delete/{id}")]
-        
         public async Task<IActionResult> Delete(int id)
         {
-            var result = await _blogService.DeleteAsync(id);
+            var result = await _psychologistService.DeleteAsync(id);
             if (!result.IsSuccess)
             {
                 return BadRequest(result);

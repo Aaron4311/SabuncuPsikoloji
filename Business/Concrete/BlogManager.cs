@@ -30,7 +30,7 @@ namespace Business.Concrete
             await _blogDal.AddAsync(blog);
             return new SuccessResult(Messages.BlogIsAdded);
         }
-        [SecuredOperation("admin")]
+        //[SecuredOperation("admin")]
         public async Task<IResult> DeleteAsync(int id)
         {
             var blogToDelete = _blogDal.GetAsync(x => x.Id == id).Result;
@@ -54,7 +54,7 @@ namespace Business.Concrete
         }
 
         [ValidationAspect(typeof(BlogValidator))]
-        [SecuredOperation("admin")]
+        //[SecuredOperation("admin")]
         public async Task<IResult> UpdateAsync(Blog blog)
         {
             await _blogDal.UpdateAsync(blog);

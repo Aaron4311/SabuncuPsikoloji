@@ -1,28 +1,25 @@
 ﻿using Business.Abstract;
 using Entity.Concrete;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebAPI.Controllers
 {
-   
     [Route("api/[controller]")]
     [ApiController]
-    public class BlogController : ControllerBase
+    public class MessageController : ControllerBase
     {
-        private readonly IBlogService _blogService;
+        private readonly IMessageService _messageService;
 
-        public BlogController(IBlogService blogService)
+        public MessageController(IMessageService messageService)
         {
-            _blogService = blogService;
+            _messageService = messageService;
         }
-
 
         [HttpGet("GetAll")]
         public async Task<IActionResult> GetAll()
         {
-            var result = await _blogService.GetAllAsync();
+            var result = await _messageService.GetAllAsync();
             if (!result.IsSuccess)
             {
                 return BadRequest(result);
@@ -34,7 +31,7 @@ namespace WebAPI.Controllers
         [HttpGet("Get/{id}")]
         public async Task<IActionResult> Get(int id)
         {
-            var result = await _blogService.GetAsync(id);
+            var result = await _messageService.GetAsync(id);
             if (!result.IsSuccess)
             {
                 return BadRequest(result);
@@ -43,21 +40,12 @@ namespace WebAPI.Controllers
         }
 
 
-        [HttpGet("GetByUrl/{blogUrl}")]
-        public async Task<IActionResult> Get(string blogUrl)
-        {
-            var result = await _blogService.GetBlogByUrl(blogUrl);
-            if (!result.IsSuccess)
-            {
-                return BadRequest(result);
-            }
-            return Ok(result.Data);
-        }
 
         [HttpPost("Add")]
-        public async Task<IActionResult> Add(Blog blog)
+        //[Authorize]
+        public async Task<IActionResult> Add(Message message)
         {
-            var result = await _blogService.AddAsync(blog);
+            var result = await _messageService.AddAsync(message);
             if (!result.IsSuccess)
             {
                 return BadRequest(result);
@@ -65,10 +53,9 @@ namespace WebAPI.Controllers
             return Ok(result.Message);
         }
         [HttpPut("Update")]
-        
-        public async Task<IActionResult> Update(Blog blog)
+        public async Task<IActionResult> Update(Message message)
         {
-            var result = await _blogService.UpdateAsync(blog);
+            var result = await _messageService.UpdateAsync(message);
             if (!result.IsSuccess)
             {
                 return BadRequest(result);
@@ -76,10 +63,9 @@ namespace WebAPI.Controllers
             return Ok(result.Message);
         }
         [HttpDelete("Delete/{id}")]
-        
         public async Task<IActionResult> Delete(int id)
         {
-            var result = await _blogService.DeleteAsync(id);
+            var result = await _messageService.DeleteAsync(id);
             if (!result.IsSuccess)
             {
                 return BadRequest(result);
