@@ -363,3 +363,6 @@ MigrationBackup/
 FodyWeavers.xsd
 /DataAccess/Concrete/EntityFramework/Context/SabuncuPsikolojiDbContext.cs
 /WebAPI/appsettings.json
+/WebUI/appsettings.json
+/WebUI/Areas/Admin/Controllers/LoginController.cs
+/WebUI/appsettings.json
