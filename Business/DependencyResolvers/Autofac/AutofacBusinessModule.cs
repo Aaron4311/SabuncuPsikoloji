@@ -19,13 +19,21 @@ namespace Business.DependencyResolvers.Autofac
             builder.RegisterType<BlogManager>().As<IBlogService>().SingleInstance();
             builder.RegisterType<EfBlogDal>().As<IBlogDal>().SingleInstance();
 
+            builder.RegisterType<ServiceManager>().As<IServiceService>().SingleInstance();
+            builder.RegisterType<EfServiceDal>().As<IServiceDal>().SingleInstance();
+
+            builder.RegisterType<MessageManager>().As<IMessageService>().SingleInstance();
+            builder.RegisterType<EfMessageDal>().As<IMessageDal>().SingleInstance();
+
             builder.RegisterType<UserManager>().As<IUserService>().SingleInstance();
             builder.RegisterType<EfUserDal>().As<IUserDal>().SingleInstance();
+
+            builder.RegisterType<PsychologistManager>().As<IPsychologistService>().SingleInstance();
+            builder.RegisterType<EfPsychologistDal>().As<IPsychologistDal>().SingleInstance();
 
             builder.RegisterType<AuthManager>().As<IAuthService>().SingleInstance();
 
             builder.RegisterType<JwtHelper>().As<ITokenHelper>().SingleInstance();
-
             var assembly = Assembly.GetExecutingAssembly();
             builder.RegisterAssemblyTypes(assembly).AsImplementedInterfaces()
                 .EnableInterfaceInterceptors(new ProxyGenerationOptions()
