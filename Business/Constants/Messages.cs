@@ -28,5 +28,29 @@ namespace Business.Constants
         public static string userExists = "This user already exists";
         public static string userIsAdded = "User has been added";
         #endregion
+
+        #region Service Messages
+        public static string serviceIsAdded = "Service is Added";
+        public static string serviceIsDeleted = "Service is Deleted";
+        public static string servicesAreListed = "Services are Listed";
+        public static string serviceIsListed = "Service is Listed";
+        public static string serviceIsUpdated = "Service is Updated";
+        #endregion
+
+        #region Message Messages
+        public static string messageIsAdded = "Message is Added";
+        public static string messageIsDeleted = "Service is Deleted";
+        public static string messagesAreListed = "Services are Listed";
+        public static string messageIsListed = "Service is Listed";
+        public static string messageIsUpdated = "Service is Updated";
+        #endregion
+
+        #region Psychologist Messages
+        public static string psychologistIsAdded = "Psychologist is Added";
+        public static string psychologistIsDeleted = "Psychologist is Deleted";
+        public static string psychologistsAreListed = "Psychologists are Listed";
+        public static string psychologistIsListed = "Psychologist is Listed";
+        public static string psychologistIsUpdated = "Psychologist is Updated";
+        #endregion
     }
 }
