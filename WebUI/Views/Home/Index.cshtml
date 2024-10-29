@@ -2,7 +2,7 @@
 @inject IPsychologistService _psychologistService
 @{
     ViewData["Title"] = "Home Page";
-    var services = await _serviceService.GetAllAsync();
+    var services = _serviceService.GetAllAsync().Result.OrderByDescending(x => x.Id);
     var psychologists = await _psychologistService.GetAllAsync();
 }
 
