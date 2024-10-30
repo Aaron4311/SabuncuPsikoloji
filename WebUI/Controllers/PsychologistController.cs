@@ -19,20 +19,11 @@ namespace WebUI.Controllers
             return View(result);
         }
 
-        //[HttpGet("uzman-psikolog-gizem-ozfuttu")]
-        //public IActionResult GizemOzfuttu()
-        //{
-        //    return View();
-        //}
-        //[HttpGet("uzman-klinik-psikolog-merve-ozen")]
-        //public IActionResult MerveOzen()
-        //{
-        //    return View();
-        //}
-        //[HttpGet("uzman-psikolog-aile-danismani-duygu-bakir")]
-        //public IActionResult DuyguBakır()
-        //{
-        //    return View();
-        //}
+        [HttpGet("Ekibimiz")]
+        public IActionResult OurCrew()
+        {
+            return View();
+        }
+
     }
 }
