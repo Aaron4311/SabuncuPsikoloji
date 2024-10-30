@@ -1,0 +1,105 @@
+﻿@inject IPsychologistService _psychologistService
+@{
+    ViewData["Title"] = "Ekibimiz";
+    var psychologists = await _psychologistService.GetAllAsync();
+}
+
+<div class="page-header about-page-header bg-radius-section parallaxie">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-12">
+                <!-- Page Header Box Start -->
+                <div class="page-header-box">
+                    <h1 class="text-anime-style-2" data-cursor="-opaque">Ekibimiz</h1>
+                    <nav class="wow fadeInUp">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="/">Anasayfa</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Ekibimiz</li>
+                        </ol>
+                    </nav>
+                </div>
+                <!-- Page Header Box End -->
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="page-blog bg-radius-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-6">
+                <!-- Blog Item Start -->
+                <div class="blog-item wow fadeInUp">
+                    <!-- Post Featured Image Start-->
+                    <div class="post-featured-image">
+                    </div>
+                    <!-- Post Featured Image End -->
+                    <!-- post Item Content Start -->
+                    <div class="post-item-content">
+                        <!-- post Item Body Start -->
+                        <div class="post-item-body">
+                            <iframe frameborder="0" scrolling="no" allowtransparency="true" data-id="x8sb7zrwda" src="https://widgets.doktortakvimi.com/doctor/widget/big/muberra-sabuncu?customUtm=null&amp;id=x8sb7zrwda&amp;header=null&amp;content=null&amp;fullwidth=null&amp;referer=https%3A%2F%2Fsabuncupsikoloji.com%2Fkurucu-uzman-psikolog-muberra-sabuncu%2F&amp;hide_branding=true&amp;widget_position=top&amp;opinion=true&amp;saasonly=false" style="border: none; overflow: hidden; width: 100%; height: 371px;"></iframe>
+                        </div>
+                        <!-- Post Item Body End-->
+                        <!-- Post Item Footer Start-->
+                        <div class="post-item-footer">
+                        </div>
+                        <!-- Post Item Footer End-->
+                    </div>
+                    <!-- post Item Content End -->
+                </div>
+                <!-- Blog Item End -->
+            </div>
+
+            @foreach (var psychologist in psychologists)
+            {
+                <div class="col-lg-4 col-md-6">
+                    <!-- Blog Item Start -->
+                    <div class="blog-item wow fadeInUp">
+                        <!-- Post Featured Image Start-->
+                        <div class="post-featured-image">
+                            <figure>
+                                <a href="/@psychologist.PsychologistUrl" class="image-anime" data-cursor-text="Oku">
+                                    <img src="~/images/@psychologist.ImageUrl" alt="@psychologist.Name">
+                                </a>
+
+                            </figure>
+
+                        </div>
+                        <!-- Post Featured Image End -->
+                        <!-- post Item Content Start -->
+                        <div class="post-item-content">
+                            <!-- post Item Body Start -->
+                            <div class="post-item-body">
+                                <h2 class="text-left ps-3">
+                                    <a href="/@psychologist.PsychologistUrl">
+                                        <div>
+                                            <p><strong> @psychologist.Name  </strong> <br />  @psychologist.Title </p>
+
+                                        </div>
+                                    </a>
+                                </h2>
+                            </div>
+                            <!-- Post Item Body End-->
+                            <!-- Post Item Footer Start-->
+                            <div class="post-item-footer">
+                                @if (!string.IsNullOrEmpty(psychologist.PsychologistUrl))
+                                {
+                                    <a href="/@psychologist.PsychologistUrl" class="readmore-btn ps-3 mb-2">Daha Fazla</a>
+
+                                }
+                            </div>
+                            <!-- Post Item Footer End-->
+                        </div>
+                        <!-- post Item Content End -->
+                    </div>
+                    <!-- Blog Item End -->
+                </div>
+
+            }
+        </div>
+    </div>
+</div>
+

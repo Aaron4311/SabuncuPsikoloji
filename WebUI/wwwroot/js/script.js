@@ -1,6 +1,6 @@
 window.onload = function () {
-	if (window.innerWidth > 768) { // Masaüstü için kontrol
-		document.getElementById('popup').style.display = 'block';
+	if (true) { // Masaüstü için kontrol
+		document.getElementById('popup').style.display = 'flex';
 		console.log("PopUp Log")
 	}
 };
