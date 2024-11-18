@@ -907,16 +907,45 @@ header.main-header {
                 height: 100%;
                 object-fit: cover;
             }
+
 #slider-foto {
     height: 120% !important;
 }
-@media(max-width:768px){
+
+#slider-foto-cocuk {
+    height: 130%
+}
+#evlilik-cift{
+    height:125%;
+}
+#ilacsiz-terapi {
+    height: 120%
+}
+@media(max-width:768px) {
     #slider-foto {
         object-position: -388px;
     }
     #slider-foto1 {
         object-position: -400px;
     }
+    #ilacsiz-terapi {
+    object-position: -458px 120px;
+    }
+    #slider-foto-cocuk {
+        object-position: -448px;
+        height: 120%
+    }
+    #slider-foto-emdr{
+        object-position: -504px;
+        height:110%
+    }
+    #slider-foto-bosanma{
+        object-position:-515px;
+    }
+    #evlilik-cift{
+        object-position:-504px;
+    }
+
 }
 .hero.hero-slider-layout .hero-pagination {
     position: absolute;
