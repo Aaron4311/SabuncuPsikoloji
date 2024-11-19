@@ -1,6 +1,17 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Google Tag Manager -->
+    <script>
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-NDVQWQXN');</script>
+    <!-- End Google Tag Manager -->
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -30,6 +41,9 @@
         gtag('config', 'AW-390483252');
     </script>
     <script>
+        gtag('event', 'conversion', { 'send_to': 'AW-390483252/mc65CKmB_OUZELSamboB' });
+    </script>
+    <script>
         gtag('config', 'AW-390483252/zKdACMHSweYZELSamboB', {
             'phone_conversion_number': '+90 535 468 04 48'
         });
@@ -38,7 +52,11 @@
 <!-- Google tag (gtag.js) -->
 
 <body>
-
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NDVQWQXN"
+                height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
     <partial name="_Navbar.cshtml" />
     @RenderBody()
    @*  <a href="https://wa.me/905354680448" class="whatsapp-btn" target="_blank">
@@ -74,6 +92,9 @@
     <script src="~/js/jquery.mb.YTPlayer.min.js"></script>
     <script src="~/js/wow.js"></script>
     <script src="~/js/function.js"></script>
+   
 @*     @await RenderSectionAsync("Scripts", required: false)
  *@</body>
+<!-- Google Tag Manager (noscript) -->
+
 </html>
