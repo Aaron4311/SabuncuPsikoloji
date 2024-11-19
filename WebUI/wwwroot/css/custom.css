@@ -945,8 +945,28 @@ header.main-header {
     #evlilik-cift{
         object-position:-504px;
     }
+    .margin-top {
+        margin-top: 665px;
+    }
 
 }
+
+.disabled{
+    display:none;
+}
+@media(max-width:768px){
+    .disabled{
+        display:block;
+        
+    }
+        .disabled img {
+            object-position: -10px;
+        }
+    .desktop{
+        display:none;
+    }
+}
+
 .hero.hero-slider-layout .hero-pagination {
     position: absolute;
     bottom: 120px;
