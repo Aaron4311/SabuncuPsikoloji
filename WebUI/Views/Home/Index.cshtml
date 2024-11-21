@@ -5,7 +5,9 @@
     var services = _serviceService.GetAllAsync().Result.OrderByDescending(x => x.Id);
     var psychologists = await _psychologistService.GetAllAsync();
 }
-
+<style>
+   
+</style>
 
 <!-- Hero Section Start -->
 <div class="hero hero-slider-layout bg-radius-section">
@@ -310,20 +312,47 @@
 <div class="our-benefits bg-radius-section">
     <div class="container">
         <div class="row">
-            <div class="col-lg-4 col-md-6">
-                <!-- Benefits Item Start -->
-                <div class="benefits-item wow fadeInUp">
-                    <div class="icon-box">
-                        <img src="images/icon-benefits-1.svg" alt="">
-                    </div>
-                    <div class="benefits-content">
-                        <h3>Uzman Kadro</h3>
-                        <p>Alanında Deneyimli Kadro</p>
-                    </div>
-                </div>
-                <!-- Benefits Item End -->
-            </div>
+            <div class="col-lg-12 col-md-12">
+                <div class="slideshow-container">
 
+                    <!-- Full-width slides/quotes -->
+                    <div class="mySlides">
+                        <q>Oğlumun sınav kaygısı ile baş edebilmesi için kendisi ile görüştük. 
+                            Oğlumla çok ilgilendi ve sorunu ile başa çıkabilmesi için yol gösterici oldu. 
+                            Randevuları ayarlamak için de ellerinden geleni yapıyorlar. Temiz ve ferah bir ortam.
+                            Klinik kolay ulaşılabilir bir yerde.</q>
+@*                         <p class="author">- John Keats</p>
+ *@                    </div>
+
+                    <div class="mySlides">
+                        <q>Muberra hanım ile yaptığımız ilk seans itibarıyla kendisinin ne kadar sıcakkanlı biri olduğunu gördüm. 
+                            Samimiyeti bana kendimi çok rahat hissettiriyor ve onu bir abla yakınlığında görüyorum. 
+                            Sorunlarımı teker dinliyor ve sırasıyla hepsini çözebilmemiz adına çeşitli adımlar atıyor.
+                        Terapinin etkisinin, Müberra Hanım'ın desteğinin gündelik yaşantımda olumlu yanlarını görüyorum ve görmeye de devam edeceğine eminim'</q>
+                        @* <p class="author">- Ernest Hemingway</p> *@
+                    </div>
+
+                    <div class="mySlides">
+                        <q>Bazen bazı şeyleri herkese anlatamazsınız, 
+                            içinizde yaşar; bağırıp çağırıp hallettiğinizi sanırsınız ama hiç bir şey değişmez. 
+                            Tabi ki anlattığım şeyleri her psikolog gibi profesyenelliğin dışında derdimin değil de ortak derdimiz gibi sahiplenmesi... 
+                            Artık ablam olan, canım ablam yargılamaktan ziyade siz yine kendinizle dertleşirken öz farkındalığınızı geliştiren üçüncü bir göz gibi . İyi ki...</q>
+                       @*  <p class="author">- Thomas A. Edison</p> *@
+                    </div>
+
+                    <!-- Next/prev buttons -->
+                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                </div>
+
+                <!-- Dots/bullets/indicators -->
+                <div class="dot-container">
+                    <span class="dot" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                    <span class="dot" onclick="currentSlide(3)"></span>
+                </div>
+            </div>
+@* 
             <div class="col-lg-4 col-md-6">
                 <!-- Benefits Item Start -->
                 <div class="benefits-item wow fadeInUp" data-wow-delay="0.25s">
@@ -350,86 +379,19 @@
                     </div>
                 </div>
                 <!-- Benefits Item End -->
-            </div>
+            </div> *@
         </div>
     </div>
 </div>
 
 
 
-<div class="container-lg mt-5">
-    <div class="row">
-        <div class="col-md-6 col-sm-12 desktop">
-            <img src="~/images/yorum1.jpg" />
-        </div>
-        <div class="col-sm-12 disabled">
-            <img src="~/images/mobil-yorum1.jpg" />
-        </div>
-        <div class="col-md-6 col-sm-12 desktop">
-            <img src="~/images/yorum2.jpg" />
-        </div>
-        <div class="col-sm-12 disabled">
-            <img src="~/images/mobil-yorum2.jpg" />
-        </div>
-        <div class="col-md-6 col-sm-12 desktop">
-            <img src="~/images/yorum6.jpg" />
-        </div>
-        <div class="col-sm-12 disabled">
-            <img src="~/images/mobil-yorum6.jpg" />
-        </div>
-        <div class="col-md-6 col-sm-12 desktop" style="height:350px">
-            <img src="~/images/yorum4.jpg" />
-        </div>
-        <div class="col-md-6 col-sm-12 disabled" style="">
-            <img src="~/images/mobil-yorum4.jpg" />
-        </div>
-        @* <div class="col-md-6 col-sm-12">
-        <img src="~/images/yorum5.jpg" />
-        </div> *@
-        @*   <div class="col-md-6 col-sm-12">
-        <img src="~/images/yorum6.jpg" />
-        </div> *@
-    </div>
-</div>
+
 
 <!-- Our Benefits Secton End -->
 
 
-<div class="container mt-5">
-    <div class="row" style="height:415px;">
 
-        <div class="col d-flex justify-content-center mt-3">
-            <div class="col d-flex justify-content-center mt-3">
-                <iframe width="200" height="322" src="https://www.youtube.com/embed/9rb-aOFR8Qw" title="Partner Seçiminde Nelere Dikkat Edilmelidir?/Uzman Psikolog Müberra Sabuncu" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </div>
-            <div class="col d-flex justify-content-center mt-3">
-                <iframe width="200" height="322" src="https://www.youtube.com/embed/ArNrmRFBYlk" title="İlişkide Derinlik Nasıl Oluşur/ Uzman Psikolog Müberra Sabuncu" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </div>
-        </div>
-
-        <div class="col d-flex justify-content-center mt-3">
-            <div class="col d-flex justify-content-center mt-3">
-                <iframe width="200" height="322" src="https://www.youtube.com/embed/jyxs5arCw30" title="Sağlıklı İlişki Beklentisi/ Uzman Psikolog Müberra Sabuncu" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </div>
-            <div class="col d-flex justify-content-center mt-3">
-                <iframe width="200" height="322" src="https://www.youtube.com/embed/HPbGiw1H0Ic" title="Kıskançlığın Sınırı Ne Olmalıdır?" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </div>
-        </div>
-
-        <div class="col d-flex justify-content-center mt-3">
-            <div class="col d-flex justify-content-center mt-3">
-                <iframe width="200" height="322" src="https://www.youtube.com/embed/ks8E5EjLmUw" title="İlişkilerde Olumsuzluklar Ne Zaman Başlar?" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </div>
-            <div class="col d-flex justify-content-center mt-3">
-                <iframe width="200" height="322" src="https://www.youtube.com/embed/h2A_pNCdFa0" title="Aldatma Psikolojisi" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </div>
-        </div>
-
-    </div>
-    <div class="row">
-      
-    </div>
-</div>
 
 
 <div class="page-blog bg-radius-section margin-top">
@@ -695,6 +657,63 @@
 <!-- Page Blog Start -->
 <!-- Page Blog End -->
 <!-- Our Services Section Start -->
+
+
+<!-- Fotolar -->
+<div class="row text-center mb-4">
+    <h1>GALERİ</h1>
+</div>
+<div id="carouselExampleCaptions" style="margin-bottom:200px;z-index:5" class="carousel slide d-flex justify-content-center">
+    
+    
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner carousel-inner-class">
+        <div class="carousel-item active">
+            <img src="~/images/mb-1.jpg" class="d-block w-100" alt="...">
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+           
+           
+        </div>
+        <div class="carousel-item ">
+            <img src="~/images/mb-3.jpg" class="d-block w-100" alt="...">
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+
+        </div>
+        <div class="carousel-item ">
+            <img src="~/images/mb-2.jpg" class="d-block w-100" alt="...">
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+
+        </div>
+   
+    </div>
+   
+</div>
+
 
 
 
@@ -964,3 +983,39 @@
 
 
 <script src="~/js/script.js"></script>
+
+
+<script>
+    var slideIndex = 1;
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        var dots = document.getElementsByClassName("dot");
+        if (n > slides.length) { slideIndex = 1 }
+        if (n < 1) { slideIndex = slides.length }
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+    }
+    window.onload = function () {
+        setInterval(function () {
+            plusSlides(1);
+        }, 50000);
+    }
+</script>
+
