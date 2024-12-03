@@ -816,10 +816,10 @@ header.main-header {
 
 .whatsapp-btn {
     position: fixed;
-    bottom: 120px; /* Sayfanýn altýndan 20px yukarýda */
-    left: 20px; /* Sayfanýn solundan 20px içeride */
+    bottom: 200px; /* Sayfanýn altýndan 20px yukarýda */
+    left: 4px; /* Sayfanýn solundan 20px içeride */
     z-index: 1000; /* Diðer içeriklerin üstünde olacak þekilde */
-    width: 90px; /* Buton geniþliði */
+    width: 71px; /* Buton geniþliði */
     height: 0px; /* Buton yüksekliði */
 }
 
