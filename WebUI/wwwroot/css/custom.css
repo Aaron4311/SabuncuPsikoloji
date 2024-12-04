@@ -4416,8 +4416,8 @@ footer.main-footer {
 
 .blog-entry {
     word-wrap: break-word;
-    word-break: break-all;
-    white-space: normal;
+/*    word-break: break-all;
+*/    white-space: normal;
 }
 
 .post-entry:after {
