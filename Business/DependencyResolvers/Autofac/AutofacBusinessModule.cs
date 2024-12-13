@@ -31,6 +31,9 @@ namespace Business.DependencyResolvers.Autofac
             builder.RegisterType<PsychologistManager>().As<IPsychologistService>().SingleInstance();
             builder.RegisterType<EfPsychologistDal>().As<IPsychologistDal>().SingleInstance();
 
+            builder.RegisterType<SliderContentManager>().As<ISliderContentService>().SingleInstance();
+            builder.RegisterType<EfSliderContentDal>().As<ISliderContentDal>().SingleInstance();
+
             builder.RegisterType<AuthManager>().As<IAuthService>().SingleInstance();
 
             builder.RegisterType<JwtHelper>().As<ITokenHelper>().SingleInstance();
