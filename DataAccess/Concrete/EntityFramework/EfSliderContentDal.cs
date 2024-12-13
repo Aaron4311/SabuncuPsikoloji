@@ -1,4 +1,5 @@
 using Core.DataAccess.EntityFramework;
+using DataAccess.Abstract;
 using DataAccess.Concrete.EntityFramework.Context;
 using Entity.Concrete;
 using System;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Concrete.EntityFramework
 {
-    public class EfSliderContentDal : EfEntityBaseRepository<SliderContent,SabuncuPsikolojiDbContext>
+    public class EfSliderContentDal : EfEntityBaseRepository<SliderContent,SabuncuPsikolojiDbContext> , ISliderContentDal
     {
     }
 }
