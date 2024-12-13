@@ -52,5 +52,13 @@ namespace Business.Constants
         public static string psychologistIsListed = "Psychologist is Listed";
         public static string psychologistIsUpdated = "Psychologist is Updated";
         #endregion
+
+        #region Slider Content Messages
+        public static string sliderIsUpdated = "Slider is Updated";
+        public static string sliderIsListed = "Slider is Listed";
+        public static string slidersAreListed = "Sliders are Listed";
+        public static string sliderIsDeleted = "Slider is deleted";
+        public static string sliderIsAdded = "Slider is Added";
+        #endregion
     }
 }
