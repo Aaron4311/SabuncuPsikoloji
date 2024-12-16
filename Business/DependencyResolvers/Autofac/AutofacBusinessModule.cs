@@ -7,6 +7,7 @@ using Core.Utilities.Interceptors;
 using Core.Utilities.Security.JWT;
 using DataAccess.Abstract;
 using DataAccess.Concrete.EntityFramework;
+using Entity.Concrete;
 using System.Reflection;
 using Module = Autofac.Module;
 
@@ -33,6 +34,15 @@ namespace Business.DependencyResolvers.Autofac
 
             builder.RegisterType<SliderContentManager>().As<ISliderContentService>().SingleInstance();
             builder.RegisterType<EfSliderContentDal>().As<ISliderContentDal>().SingleInstance();
+
+            builder.RegisterType<CommentManager>().As<ICommentService>().SingleInstance();
+            builder.RegisterType<EfCommentDal>().As<ICommentDal>().SingleInstance();
+
+            builder.RegisterType<TopContentManager>().As<ITopContentService>().SingleInstance();
+            builder.RegisterType<EfTopContentDal>().As<ITopContentDal>().SingleInstance();
+
+            builder.RegisterType<BottomContentManager>().As<IBottomContentService>().SingleInstance();
+            builder.RegisterType<EfBottomContentDal>().As<IBottomContentDal>().SingleInstance();
 
             builder.RegisterType<AuthManager>().As<IAuthService>().SingleInstance();
 
