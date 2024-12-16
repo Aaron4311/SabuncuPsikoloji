@@ -15,6 +15,9 @@ namespace WebUI.DependencyResolvers.Autofac
             builder.RegisterType<AuthManager>().As<IAuthService>().SingleInstance();
             builder.RegisterType<PsychologistManager>().As<IPsychologistService>().SingleInstance();
             builder.RegisterType<SliderContentManager>().As<ISliderContentService>().SingleInstance();
+            builder.RegisterType<CommentManager>().As<ICommentService>().SingleInstance();
+            builder.RegisterType<TopContentManager>().As<ITopContentService>().SingleInstance();
+            builder.RegisterType<BottomContentManager>().As<IBottomContentService>().SingleInstance();
 
 
 
