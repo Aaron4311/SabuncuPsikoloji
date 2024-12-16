@@ -1,8 +1,15 @@
 ﻿@inject IServiceService _serviceService
 @inject IPsychologistService _psychologistService
 @inject ISliderContentService _sliderContentService;
+@inject ITopContentService _topContentService;
+@inject IBottomContentService _bottomContentService;
+@inject ICommentService _commentService;
+
 @{
     ViewData["Title"] = "Home Page";
+    var topContents =await _topContentService.GetAllAsync();
+    var bottomContent = await _bottomContentService.GetAllAsync();
+    var comments = await _commentService.GetAllAsync();
     var services = _serviceService.GetAllAsync().Result.OrderByDescending(x => x.Id);
     var psychologists = await _psychologistService.GetAllAsync();
     var sliderContents = await _sliderContentService.GetAllAsync();
@@ -398,54 +405,19 @@
                 <div class="slideshow-container">
 
                     <!-- Full-width slides/quotes -->
-                    <div class="mySlides">
-                        <q>
-                            Oğlumun sınav kaygısı ile baş edebilmesi için kendisi ile görüştük.
-                            Oğlumla çok ilgilendi ve sorunu ile başa çıkabilmesi için yol gösterici oldu.
-                            Randevuları ayarlamak için de ellerinden geleni yapıyorlar. Temiz ve ferah bir ortam.
-                            Klinik kolay ulaşılabilir bir yerde.
-                        </q>
-                        @*                         <p class="author">- John Keats</p>
+                    @foreach (var comment in comments)
+                    {
+                        <div class="mySlides">
+                            <q>
+                                @Html.Raw(comment.Content)
+                            </q>
+                            @*                         <p class="author">- John Keats</p>
                         *@
-                    </div>
+                        </div>
+                    }
+                
 
-                    <div class="mySlides">
-                        <q>
-                            Muberra hanım ile yaptığımız ilk seans itibarıyla kendisinin ne kadar sıcakkanlı biri olduğunu gördüm.
-                            Samimiyeti bana kendimi çok rahat hissettiriyor ve onu bir abla yakınlığında görüyorum.
-                            Sorunlarımı teker dinliyor ve sırasıyla hepsini çözebilmemiz adına çeşitli adımlar atıyor.
-                            Terapinin etkisinin, Müberra Hanım'ın desteğinin gündelik yaşantımda olumlu yanlarını görüyorum ve görmeye de devam edeceğine eminim'
-                        </q>
-                        @* <p class="author">- Ernest Hemingway</p> *@
-                    </div>
-                    <div class="mySlides">
-
-                        <q>Biz çift olarak Müberra Hanımı internet üzerinden araştırarak kendisiyle terapiye başladık. Terapiye ilk başladığımızda eşimle aramızdaki yoğun çatışmalar evliliğimizi neredeyse bitme noktasına getirmişti. Müberra Hanım olaylara bakış açısı ve sakinliğiyle bize süreç boyunca çok güven verdi. Sorunlarımızı her zaman detaylı bir şekilde dinledi ve ilişkimizi onun sayesinde kurtardık diyebilirim. İyi ki terapiye başlamışız.</q>
-
-
-                        @* <p class="author">- Ernest Hemingway</p> *@
-                    </div>
-                    <div class="mySlides">
-                        <q>
-                            Bazen bazı şeyleri herkese anlatamazsınız,
-                            içinizde yaşar; bağırıp çağırıp hallettiğinizi sanırsınız ama hiç bir şey değişmez.
-                            Tabi ki anlattığım şeyleri her psikolog gibi profesyenelliğin dışında derdimin değil de ortak derdimiz gibi sahiplenmesi...
-                            Artık ablam olan, canım ablam yargılamaktan ziyade siz yine kendinizle dertleşirken öz farkındalığınızı geliştiren üçüncü bir göz gibi . İyi ki...
-                        </q>
-                        @*  <p class="author">- Thomas A. Edison</p> *@
-                    </div>
-                    <div class="mySlides">
-                        <q>
-                            Müberra Hanım'dan gayet memnunum. Kendisi yaklaşımları güzel, anlayışlı bir uzman. Referans aracılığıyla görüşme sağladım. 3 ay kadar danışmanlık hizmeti aldım. Şu anda ara verdim. Belirli aralıklarla devam edeceğiz. Yaşadığım şeylerin izahını profesyonelden almak önemli bir şey. Anlam vermeye başladığım için çözümlemem daha kolay oldu. Müberra Hanım bayağı yardımcı oldu.
-                        </q>
-                        @*  <p class="author">- Thomas A. Edison</p> *@
-                    </div>
-                    <div class="mySlides">
-                        <q>
-                            Yaklaşık 10 ay süren bir tedavim oldu ve sonunda çok daha iyi bir hâle geldim müberra hanıma (genelde ailemden biri gibi gördüğüm için ablama) ne kadar çok teşekkür edersem az en zor zamanımı sizinle atlattım ve bir daha olsa bir daha siz sizi bırakmak çok zor gelmişti ama ne zaman istersem yanımda olacağınız için her daim yanımda hissediyorum gözünüz kapalı her şeyi anlatabilirsiniz en çok da empati duygusunu hissettirdiği için çok teşekkür ederim umarım bir gün meslektaş olarak karşılaşırız:)
-                        </q>
-                        @*  <p class="author">- Thomas A. Edison</p> *@
-                    </div>
+                   
                     <!-- Next/prev buttons -->
                     <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
                     <a class="next" onclick="plusSlides(1)">&#10095;</a>
@@ -647,77 +619,87 @@
             <div class="col-lg-6">
                 <div class="about-content">
                     <!-- Section Title Start -->
-                    <div class="section-title">
-                        <h3 class="wow fadeInUp">Hakkımızda</h3>
-                        <h2 class="text-anime-style-3" data-cursor="-opaque">Psikolojik Destekte En İyi Seçiminiz</h2>
-                        <p class="wow fadeInUp" data-wow-delay="0.25s">Sabuncu Psikoloji, bireylerin ve ailelerin ruhsal sağlığını güçlendirmek için profesyonel çözümler sunar. Çift terapisi, çocuk ve ergen danışmanlığı, kaygı ve depresyon gibi birçok alanda uzman kadromuzla yanınızdayız. Kendinizi daha iyi hissetmek ve hayata yeni bir başlangıç yapmak için Sabuncu Psikoloji’ye güvenin.</p>
-                    </div>
-                    <!-- Section Title End -->
-                    <!-- About Content Body Start -->
-                    <div class="about-content-body">
-                        <div class="row align-items-center">
-                            <div class="col-md-6">
-                                <!-- About Content List Start -->
-                                <div class="about-content-list">
-                                    <!-- About List Item Start -->
-                                    <div class="about-list-item wow fadeInUp" data-wow-delay="0.5s">
-                                        <div class="icon-box">
-                                            <img src="images/icon-about-list-1.svg" alt="">
-                                        </div>
-                                        <div class="about-list-content">
-                                            <p>Uzman Kadro</p>
-                                        </div>
-                                    </div>
-                                    <!-- About List Item End -->
-                                    <!-- About List Item Start -->
-                                    <div class="about-list-item wow fadeInUp" data-wow-delay="0.75s">
-                                        <div class="icon-box">
-                                            <img src="images/icon-about-list-2.svg" alt="">
-                                        </div>
-                                        <div class="about-list-content">
-                                            <p>7/24 Destek</p>
-                                        </div>
-                                    </div>
-                                    <!-- About List Item End -->
-                                    <!-- About List Item Start -->
-                                    <div class="about-list-item wow fadeInUp" data-wow-delay="1s">
-                                        <div class="icon-box">
-                                            <img src="images/icon-about-list-3.svg" alt="">
-                                        </div>
-                                        <div class="about-list-content">
-                                            <p>Kişisel Gizlilik</p>
-                                        </div>
-                                    </div>
-                                    <!-- About List Item End -->
-                                </div>
-                                <!-- About Content List End -->
-                            </div>
+                    @foreach (var topContent in topContents)
+                    {
+                        @if(topContent.Key == "Hakkımızda")
+                        {
+                            
+                        
+                        <div class="section-title">
+                            <h3 class="wow fadeInUp">@Html.Raw(topContent.Key)</h3>
 
-                            <div class="col-md-6">
-                                <div class="about-trusted-customer wow fadeInUp" data-wow-delay="0.5s">
-                                    <div class="trusted-customer-image">
-                                        <img src="images/about-trusted-customer-img.png" alt="">
+                            <h2 class="text-anime-style-3" data-cursor="-opaque">@Html.Raw(topContent.Title)</h2>
+                            <p class="wow fadeInUp" data-wow-delay="0.25s">@Html.Raw(topContent.Content)</p>
+                        </div>
+                        <!-- Section Title End -->
+                        <!-- About Content Body Start -->
+                        <div class="about-content-body">
+                            <div class="row align-items-center">
+                                <div class="col-md-6">
+                                    <!-- About Content List Start -->
+                                    <div class="about-content-list">
+                                        <!-- About List Item Start -->
+                                        <div class="about-list-item wow fadeInUp" data-wow-delay="0.5s">
+                                            <div class="icon-box">
+                                                <img src="images/icon-about-list-1.svg" alt="">
+                                            </div>
+                                            <div class="about-list-content">
+                                                <p>Uzman Kadro</p>
+                                            </div>
+                                        </div>
+                                        <!-- About List Item End -->
+                                        <!-- About List Item Start -->
+                                        <div class="about-list-item wow fadeInUp" data-wow-delay="0.75s">
+                                            <div class="icon-box">
+                                                <img src="images/icon-about-list-2.svg" alt="">
+                                            </div>
+                                            <div class="about-list-content">
+                                                <p>7/24 Destek</p>
+                                            </div>
+                                        </div>
+                                        <!-- About List Item End -->
+                                        <!-- About List Item Start -->
+                                        <div class="about-list-item wow fadeInUp" data-wow-delay="1s">
+                                            <div class="icon-box">
+                                                <img src="images/icon-about-list-3.svg" alt="">
+                                            </div>
+                                            <div class="about-list-content">
+                                                <p>Kişisel Gizlilik</p>
+                                            </div>
+                                        </div>
+                                        <!-- About List Item End -->
                                     </div>
-                                    <div class="trusted-customer-rating">
-                                        <ul>
-                                            <li>
-                                                <i class="fa-solid fa-star"></i>
-                                                <i class="fa-solid fa-star"></i>
-                                                <i class="fa-solid fa-star"></i>
-                                                <i class="fa-solid fa-star"></i>
-                                                <i class="fa-solid fa-star"></i>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="trusted-customer-content">
-                                        <p>Bize Güvenen <span class="counter">4</span>k+ Danışan</p>
+                                    <!-- About Content List End -->
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="about-trusted-customer wow fadeInUp" data-wow-delay="0.5s">
+                                        <div class="trusted-customer-image">
+                                            <img src="images/about-trusted-customer-img.png" alt="">
+                                        </div>
+                                        <div class="trusted-customer-rating">
+                                            <ul>
+                                                <li>
+                                                    <i class="fa-solid fa-star"></i>
+                                                    <i class="fa-solid fa-star"></i>
+                                                    <i class="fa-solid fa-star"></i>
+                                                    <i class="fa-solid fa-star"></i>
+                                                    <i class="fa-solid fa-star"></i>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="trusted-customer-content">
+                                            <p>Bize Güvenen <span class="counter">4</span>k+ Danışan</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- About Content Body End -->
-                    <!-- About Content Footer Start -->
+                        <!-- About Content Body End -->
+                        <!-- About Content Footer Start -->
+                        }
+                    }
+                   
                     <div class="about-content-footer wow fadeInUp" data-wow-delay="1.25s">
                         <a href="/hakkimizda" class="btn-default"><span>Hakkımızda</span></a>
                     </div>
@@ -831,11 +813,20 @@
         <div class="row section-row align-items-center">
             <div class="col-lg-6">
                 <!-- Section Title Start -->
-                <div class="section-title">
-                    <h3 class="wow fadeInUp">Hizmetlerimiz</h3>
-                    <h2 class="text-anime-style-3" data-cursor="-opaque">En İyi Psikolojik Destek Hizmetleri</h2>
-                    <p class="wow fadeInUp" data-wow-delay="0.25s">Her danışanımızın ihtiyacına özel, çözüm odaklı yaklaşımımızla ruh sağlığınızı güçlendirmek için buradayız.</p>
-                </div>
+                @foreach (var topContent in topContents)
+                {
+                    @if(topContent.Key == "Hizmetlerimiz")
+                    {
+                        
+                   
+                    <div class="section-title">
+                            <h3 class="wow fadeInUp">@Html.Raw(topContent.Key)</h3>
+                        <h2 class="text-anime-style-3" data-cursor="-opaque">@Html.Raw(topContent.Title)</h2>
+                        <p class="wow fadeInUp" data-wow-delay="0.25s">@Html.Raw(topContent.Content)</p>
+                    </div>
+                    }
+                }
+             
                 <!-- Section Title End -->
             </div>
 
@@ -907,11 +898,18 @@
                     <!-- Quality Treatment Content Start -->
                     <div class="quality-treatment-content">
                         <!-- Section Title Start -->
-                        <div class="section-title">
-                            <h3 class="wow fadeInUp">Kaliteli Hizmet</h3>
-                            <h2 class="text-anime-style-3" data-cursor="-opaque">Etkili ve Kaliteli Terapi</h2>
-                            <p class="wow fadeInUp" data-wow-delay="0.25s">Sabuncu Psikoloji, bireylerin ruhsal sağlığını güçlendirmek için profesyonel ve etkili terapi yöntemleri sunar. Uzman kadromuz, her bireyin ihtiyaçlarına özel çözümler üreterek sağlıklı bir iyileşme süreci sağlar.</p>
-                        </div>
+                        @foreach (var topContent in topContents)
+                        {
+                            @if(topContent.Key == "Kaliteli Hizmet")
+                            {
+                                <div class="section-title">
+                                    <h3 class="wow fadeInUp">@Html.Raw(topContent.Key)</h3>
+                                    <h2 class="text-anime-style-3" data-cursor="-opaque">@Html.Raw(topContent.Title)</h2>
+                                    <p class="wow fadeInUp" data-wow-delay="0.25s">@Html.Raw(topContent.Content)</p>
+                                </div>
+                            }
+                        }
+                        
                         <!-- Section Title End -->
                         <!-- Quality Treatment Body Start -->
                         <div class="quality-treatment-body wow fadeInUp" data-wow-delay="0.5s">
@@ -993,28 +991,35 @@
                     </div>
                     <!-- Section Title End -->
                     <!-- How Work Accordion Start -->
-                    <div class="how-work-accordion" id="accordion">
+                    <div class="how-work-accordion" id="accordion" data-wow-delay="0.25s">
                         <!-- FAQ Item Start -->
-                        <div class="accordion-item wow fadeInUp">
-                            <h2 class="accordion-header" id="heading1">
-                                <span class="icon-box">
-                                    <img src="images/icon-how-it-work-1.svg" alt="">
-                                </span>
-                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#collapse1" aria-expanded="true" aria-controls="collapse1">
-                                    Psikoterapi seansları nasıl işliyor?
-                                </button>
-                            </h2>
-                            <div id="collapse1" class="accordion-collapse collapse show" aria-labelledby="heading1"
-                                 data-bs-parent="#accordion">
-                                <div class="accordion-body">
-                                    <p>Psikoterapi seansları, bireylerin kendilerini rahat hissedebileceği bir ortamda başlar. Terapist, kişinin ihtiyaçlarına göre uygun terapi yöntemini belirler ve seans boyunca duygu ve düşüncelerin keşfine odaklanılır. Her seans, bireyin ilerlemesine göre şekillenir ve gizlilik esastır.</p>
+                        @{int counter = 1;}
+
+                        @foreach (var btmContent in bottomContent)
+                        {
+                            string id = $"heading{counter.ToString()}";
+                            <div class="accordion-item wow fadeInUp">
+                                <h2 class="accordion-header" id="@id">
+                                    <span class="icon-box">
+                                        <img src="images/icon-how-it-work-1.svg" alt="">
+                                    </span>
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#collapse1" aria-expanded="true" aria-controls="collapse1">
+                                        @Html.Raw(btmContent.Title)
+                                    </button>
+                                </h2>
+                                <div id="collapse1" class="accordion-collapse collapse show" aria-labelledby="heading1"
+                                     data-bs-parent="#accordion">
+                                    <div class="accordion-body">
+                                        <p>@Html.Raw(btmContent.Content)</p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                            counter += 1;
+                        }
                         <!-- FAQ Item End -->
                         <!-- FAQ Item Start -->
-                        <div class="accordion-item wow fadeInUp" data-wow-delay="0.25s">
+                        @* <div class="accordion-item wow fadeInUp" data-wow-delay="0.25s">
                             <h2 class="accordion-header" id="heading2">
                                 <span class="icon-box">
                                     <img src="images/icon-how-it-work-2.svg" alt="">
@@ -1068,7 +1073,7 @@
                                     <p>Sabuncu Psikoloji, bireylerin ihtiyaçlarına göre çeşitli terapi yöntemleri sunar. Bunlar arasında Bilişsel Davranışçı Terapi, Oyun Terapisi, Şema Terapi, Dinamik Yönelimli Terapiler, EMDR Terapisi ve Mindfulness gibi teknikler yer alır. Her terapi yöntemi, bireyin yaşadığı sorunlara uygun olarak seçilir ve kişiye özel bir terapi planı oluşturulur.</p>
                                 </div>
                             </div>
-                        </div>
+                        </div> *@
                         <!-- FAQ Item End -->
                     </div>
                     <!-- FAQ Accordion End -->
